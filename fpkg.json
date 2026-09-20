@@ -23,6 +23,27 @@
       "downloadLinks": []
     },
     {
+      "titleId": "PPSA26344",
+      "title": "Ghost of Yotei: Deluxe Edition",
+      "version": "01.512",
+      "sizeBytes": 118111600640,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202504/2116/49934c62a922417e86bd3fc61a59b116cf7ae51e91d9a9de.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/2I7FKiRQvp"
+        },
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/80bVO3VDEn"
+        },
+        {
+          "name": "akirabox",
+          "url": "https://akirabox.com/BnkmWv2VrGR0/file"
+        }
+      ]
+    },
+    {
       "titleId": "PPSA03130",
       "title": "Sniper Ghost Warrior Contracts 2",
       "version": "01.001",
@@ -734,27 +755,6 @@
         {
           "name": "Viki",
           "url": "https://vik1ngfile.site/f/5oECx6mswz"
-        }
-      ]
-    },
-    {
-      "titleId": "PPSA26344",
-      "title": "Ghost of Yotei: Deluxe Edition",
-      "version": "01.512",
-      "sizeBytes": 118111600640,
-      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202504/2116/49934c62a922417e86bd3fc61a59b116cf7ae51e91d9a9de.jpg",
-      "downloadLinks": [
-        {
-          "name": "Viki - DLC",
-          "url": "https://vikingfile.com/f/2I7FKiRQvp"
-        },
-        {
-          "name": "Viki",
-          "url": "https://vikingfile.com/f/80bVO3VDEn"
-        },
-        {
-          "name": "filekeeper",
-          "url": "https://filekeeper.net/fly8wj43nv37"
         }
       ]
     },
