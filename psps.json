@@ -1,0 +1,1639 @@
+{
+  "name": "GFS Catalog-fpkg",
+  "packages": [
+    {
+      "titleId": "PPSA03831",
+      "title": "Sonic Frontiers",
+      "version": "01.041",
+      "sizeBytes": 39406324941,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1716/tH6pqQHf0hXREt1vVX3ah5P5.png",
+      "downloadLinks": [
+        {
+          "name": "Gofile",
+          "url": "https://gofile.io/d/SS5ljf4V"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03618",
+      "title": "The Chant",
+      "version": "01.000",
+      "sizeBytes": 29420525978,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202205/0515/ljqOL2Dl05pRYtxzGVlcLRR3.jpg",
+      "downloadLinks": []
+    },
+    {
+      "titleId": "PPSA03130",
+      "title": "Sniper Ghost Warrior Contracts 2",
+      "version": "01.001",
+      "sizeBytes": 14925011354,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202105/0415/Shg6j0vaSbRMS2UqfyzlWXmF.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/airC5O0v0i"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA06255",
+      "title": "Biomutant",
+      "version": "01.003",
+      "sizeBytes": 1932735283,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202102/0418/1YJdN9Vveu7Eyo7q2jg3Vui8.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/iL1WxUXftP"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA28068",
+      "title": "Mortal Kombat Legacy Kollection",
+      "version": "01.000",
+      "sizeBytes": 12455405158,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202506/0417/0fc158a8c5f68e9119c7a8e1011ca86bd18a214536c8c7df.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/y5ebPRNe4R"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02113",
+      "title": "Werewolf The Apocalypse Earthblood",
+      "version": "01.005",
+      "sizeBytes": 9771050598,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202011/1916/v1zp2APvblCKi9CpJgcKnLqM.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/x66Zq9aQgv"
+        },
+        {
+          "name": "Akirabox - DLC",
+          "url": "https://akirabox.to/jJD3VvrXr3a5/file"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA08448",
+      "title": "Asterix and Obelix XXXL The Ram From Hibernia",
+      "version": "01.000",
+      "sizeBytes": 5046586573,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202208/1609/zGz3NtvtEwQY6Kg2MydyMADA.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/ZnVCMerzqo"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA05347",
+      "title": "Record of Lodoss War Deedlit in Wonder Labyrinth",
+      "version": "1.001",
+      "sizeBytes": 279000002,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202111/2908/Ue3eoMcByWr8TI4NpQ057Fjp.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/Mme7sGwjfJ"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02508",
+      "title": "Evil Inside",
+      "version": "01.000",
+      "sizeBytes": 1181116006,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202103/0312/hkf4kNmHkKcqij95Gu7H8Z28.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/pS5y6f30Rk"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA22946",
+      "title": "LEGO® Harry Potter™ Collection",
+      "version": "01.001",
+      "sizeBytes": 14173392077,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202408/3018/d0b4fb01f0490402de6cd17d24e97d1539a9cec0115c8697.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/AWnNiH8cu1"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA30568",
+      "title": "Invincible VS",
+      "version": "01.000",
+      "sizeBytes": 8482560410,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202512/0223/e7827d96c3892955c8dd7804ef3ef2e9e5df82425062aabf.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/UrnjjcTsSe"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA25646",
+      "title": "Tetris Forever",
+      "version": "01.007",
+      "sizeBytes": 5690831667,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202410/1415/64c83b989f07b3214bfb25eacb13b8afa56d6f45d1a8ed75.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/UrnjjcTsSe"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA15645",
+      "title": "Castlevania Dominus Collection",
+      "version": "01.003",
+      "sizeBytes": 1181116006,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202408/0910/b79bdf925e3d8b377fca239e2b6ec2df9f2787cda3bc7c3a.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/ZWMkL5YGLY"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA20560",
+      "title": "DOOM: The Dark Ages",
+      "version": "1.011",
+      "sizeBytes": 97710505984,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202501/1405/bb3f89ae3425f3aa86041ff71646fc5d44d7705f3a383427.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/R7bQTmGtOD"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/J7Nx1ryaKG"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA08804",
+      "title": "Sonic Racing CrossWorlds Deluxe Edition",
+      "version": "1.012",
+      "sizeBytes": 14055280476,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202502/1222/dfe7c3bfa439e256815690260ffed8b04fa3347371ea6f0b.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/byL65Yuvr0"
+        },
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/m3hscoKXJe"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA14408",
+      "title": "Metal Gear & Metal Gear 2: Solid Snake",
+      "version": "1.500.000",
+      "sizeBytes": 719407022,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202304/2815/ba755604a4acc0ae3c9a87fb1572d7811fb6e38e46573397.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/HzCDiAWDs5"
+        },
+        {
+          "name": "Rootz",
+          "url": "https://www.rootz.so/d/1s5lD6"
+        },
+        {
+          "name": "Archive",
+          "url": "https://archive.org/details/METALGEAR1AND2_PKG"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA14053",
+      "title": "Afterimage",
+      "version": "1.00",
+      "sizeBytes": 2254857830,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202304/1007/1d8d5b7f5d01359ea4564cc55e4968d8d2bf64fd25602564.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/txIQ1SxrW7"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01442",
+      "title": "Devil May Cry 5 Special Edition",
+      "version": "1.02",
+      "sizeBytes": 43411381944,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202009/1710/86flTX6TLYP7MABrMUt3An6m.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/HriUa8MZM6"
+        },
+        {
+          "name": "MediaFire - DLC",
+          "url": "https://www.mediafire.com/file/bg1gd1b4efk4b4i/[DLPSGAME.COM]-PPSA01442-ALL+DLC.rar/file"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA17525",
+      "title": "Gears of War: Reloaded",
+      "version": "01.008.001",
+      "sizeBytes": 63726577254,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202504/2818/65c55d8745cd383304d6d60619d3be97c3f56ded6f058291.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/AbEU5J7KtC"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA21444",
+      "title": "DOOM + DOOM II",
+      "version": "03.000",
+      "sizeBytes": 1073741824,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202407/2516/895b24f9e67ee8896c749c54bebb7f14bd356ee265f148fc.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/oXJhxxsZQf"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA09477",
+      "title": "Quake II",
+      "version": "01.003",
+      "sizeBytes": 2147483648,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202307/3115/e21242d2d7e4e8fe8772402a1854865836750fb033183b3a.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/zulQ1X1Kpn"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01880",
+      "title": "Quake",
+      "version": "01.009",
+      "sizeBytes": 1073741824,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202108/0404/EWfamoGr0ZIDtAwtEswULFeL.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/yVcGLCBxnY"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA25217",
+      "title": "SUPER ROBOT WARS Y",
+      "version": "01.000.000",
+      "sizeBytes": 16782584709,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202504/0121/abfe096a28201a4c0a7b633e6c35f44eae7fe799d06c3323.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/e2APJLiD8S"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA26786",
+      "title": "Indiana Jones and The Great Circle",
+      "version": "1.009",
+      "sizeBytes": 135012296950,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202507/3120/f6e8c457989158ad67d4368e1ae951681c79f48519d390c5.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/v9zClxfxMX"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vik1ngfile.site/f/s1rKySBbTp"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01341",
+      "title": "Demon's Souls",
+      "version": "01.005",
+      "sizeBytes": 53687091200,
+      "posterUrl": "https://image.api.playstation.com/vulcan/img/rnd/202011/1717/qHFrrJINxIfsvIyudYAyjfDq.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/jOhQ1eQL2p"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/tare6xzvjG"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01474",
+      "title": "Ratchet & Clank Rift Apart",
+      "version": "1.005.003",
+      "sizeBytes": 42949672960,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202101/2921/CrGbGyUFNdkZKbg9DM2qPTE1.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/Y6G5tSaQYB"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA13197",
+      "title": "Stellar Blade™ Complete Edition",
+      "version": "01.014.001",
+      "sizeBytes": 38654705664,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202506/0212/b06dff4ff09b4bd891adb354e9ca8562d1af31c6508334ad.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/c7p1VAN0C5"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/9F2GUfQGWR"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02015",
+      "title": "Death Stranding 2 On The Beach Deluxe Edition",
+      "version": "01.013",
+      "sizeBytes": 99857989632,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202511/2114/99a635712c24abd2e1de07ec73a9737bc87685477f47f96d.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/peCnh4yKZp"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02225",
+      "title": "Ghost of Tsushima Director's Cut",
+      "version": "02.024",
+      "sizeBytes": 65498251264,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202010/0222/9h423wCC1FFb8tknYFAU4NC9.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/Qr9uw64KZi"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA08260",
+      "title": "Star Wars Outlaws",
+      "version": "01.007",
+      "sizeBytes": 73218454979,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202306/3020/bca42b94af09b7a7ffd27fcb76a7bb1e46b60ed0c5f99322.png",
+      "downloadLinks": [
+        {
+          "name": "Viki - DLC",
+          "url": "https://vik1ngfile.site/f/8b3Tz0ePQl"
+        },
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/Qanay7juKX"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01532",
+      "title": "Assassins Creed Valhalla Complete Edition",
+      "version": "01.070",
+      "sizeBytes": 152890098319,
+      "posterUrl": "https://image.api.playstation.com/vulcan/img/rnd/202011/0302/8jomNsyMYDoJnzFkBrr9Rit2.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/RmwjrzNNnK"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01685",
+      "title": "Sniper Elite 5",
+      "version": "01.004",
+      "sizeBytes": 92180735590,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202202/2116/c7SeX9ELz4PR3L3m8DQnu2lM.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/PPoZSXb6Qd"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA19943",
+      "title": "Big Helmet Heroes",
+      "version": "01.000.400",
+      "sizeBytes": 4552665334,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202411/2912/2fa8dd3ca585d5175fc0e3b9d0b25838abd9023eeb3e25c2.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/hxI2goehQY"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01325",
+      "title": "Astros Playroom",
+      "version": "01.905",
+      "sizeBytes": 12133282611,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202502/1908/5c3f6eb25719d364f490736453e9dc420ed6b92761b8248b.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/pL3faPaSMw"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA04339",
+      "title": "Nickelodeon Kart Racers 3 Slime Speedway",
+      "version": "1.000.000",
+      "sizeBytes": 7945689498,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202209/1211/cI5ANf9yBpZIiN6uaAfNXgMF.png",
+      "downloadLinks": [
+        {
+          "name": "Viki - DLC",
+          "url": "https://vik1ngfile.site/f/EbNLpdR0xa"
+        },
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/HzT6PlwKt9"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA05214",
+      "title": "Thymesia",
+      "version": "01.004",
+      "sizeBytes": 6227702579,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202207/2510/lZtqWc2sHyrh5y3fxIoPVCvc.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/VSaqmI9dxx"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA08597",
+      "title": "Scars Above",
+      "version": "01.003",
+      "sizeBytes": 13851269530,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202211/0207/01Slmbo3uyEiyiomq7TxBBLl.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/f8eAsh7gqk"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01337",
+      "title": "Ghostwire Tokyo",
+      "version": "01.009",
+      "sizeBytes": 20078972109,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202202/1522/NBxVd2wE0cVZ5GPwcBBlyxXr.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/yOlnoqHgF6"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA27360",
+      "title": "EA SPORTS FC 26",
+      "version": "01.000.018",
+      "sizeBytes": 80530636800,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202606/0422/30afecf5deecc449b0290aa843cfe179b3977b388e8e4e9b.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/befKBkLvO2"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/A290T4ojyp"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA05143",
+      "title": "Little Nightmares lll",
+      "version": "1.04",
+      "sizeBytes": 16170551869,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202506/0619/3eaea2665df2ea35a97ed467356d925954117928e5b69afa.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/MEcP6f6ESG"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02154",
+      "title": "Little Nightmares ll",
+      "version": "1.01",
+      "sizeBytes": 5443871048,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202011/1819/VYFofCMK9g75HIIuRmMpQjzV.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/bz1GpNWU9h"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/SDnbflsoW8"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA10737",
+      "title": "Little Nightmares Enhanced Complete Edition",
+      "version": "1.04",
+      "sizeBytes": 4123168604,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202509/3023/b0b3ba99959ae234e3433590879981b108d886c4e44e863e.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/oVjcPS4VQ7"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA07809",
+      "title": "Final Fantasy Vll Crisis Core Reunion",
+      "version": "1.04",
+      "sizeBytes": 21925808046,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202208/2505/7GhpNUWSPdoNFdMLroXaPXm8.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/SjiAqUHhf1"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA21783",
+      "title": "Final Fantasy Tactics Ivalice Chronicles",
+      "version": "1.40",
+      "sizeBytes": 6936372183,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202505/0808/5ca25b1294a95b0a88fb2357d7cc5d362e80bdf47da177b4.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/UaeheC6u2J"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA15211",
+      "title": "Dragon Ball Sparking Zero",
+      "version": "2.017",
+      "sizeBytes": 30279519437,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202405/2216/881aeea06b117a39f1724a4d7ebf66b152a088475e4467e4.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/2Pyuqdi9P7"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03977",
+      "title": "The Witcher 3: Wild Hunt - Complete Edition",
+      "version": "04.040.100",
+      "sizeBytes": 83751862272,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202211/0711/qezXTVn1ExqBjVjR5Ipm97IK.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/U5Tw1O6nly"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01285",
+      "title": "Returnal",
+      "version": "3.005",
+      "sizeBytes": 65498251264,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202011/0415/FlDoLAOQRrIR6On9aIwBu3it.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/DveB4sSg1F"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA22327",
+      "title": "Forza Horizon 5",
+      "version": "1.685.672",
+      "sizeBytes": 157195803034,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202502/1221/1cdbb2177cc3c6302027f05796073b27ca7f7ccf091c3127.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/KnH9iuRoVR"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02262",
+      "title": "Dying Light 2 Stay Human Ultimate Edition",
+      "version": "01.090",
+      "sizeBytes": 53611929272,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202501/3116/1fcde15f59ee34804898784dba15d6301835a8f774ae13c7.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/unKoOl6eE9"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA22520",
+      "title": "Animal Well",
+      "version": "01.000.011",
+      "sizeBytes": 118029999,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202202/0222/ifoK4Np4B75vGqJnPUoBTkmQ.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/6KGWS7Zk0G"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA25258",
+      "title": "Ninja Gaiden 4",
+      "version": "01.004",
+      "sizeBytes": 28540057682,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202501/2115/53c57d0a7d2aaf31e31f523dd2adc4151cdbc7bcf0c1160c.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/d1LF72KeP4"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA04930",
+      "title": "SnowRunner",
+      "version": "1.048",
+      "sizeBytes": 35433480192,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202105/0612/HpFUlLL72VkH0Womo10OIQq8.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/k0XJpJ8e49"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01619",
+      "title": "Mortal Kombat 11 Ultimate",
+      "version": "1.000.004",
+      "sizeBytes": 85684597555,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202009/0123/bF1qmEL5RM6aMfL0oLcxRe8B.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/5oECx6mswz"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA26344",
+      "title": "Ghost of Yotei: Deluxe Edition",
+      "version": "01.512",
+      "sizeBytes": 118111600640,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202504/2116/49934c62a922417e86bd3fc61a59b116cf7ae51e91d9a9de.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/2I7FKiRQvp"
+        },
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/80bVO3VDEn"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA24884",
+      "title": "Starfield",
+      "version": "01.002",
+      "sizeBytes": 140166257705,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202603/0401/684c5b80f300383037e55dc15bf2ad90f1753bed86e519ee.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/y0lXSdILmg"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/IkGr4g641k"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02868",
+      "title": "Mortal Shell Enhanced Edition",
+      "version": "01.000.008",
+      "sizeBytes": 4831838208,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202101/2517/O1AUkt0kzCELCP3x5b8aMKvA.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/k2AEabsaUT"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA05398",
+      "title": "Destroy All Humans 2 Reprobed",
+      "version": "01.012",
+      "sizeBytes": 44367012168,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202205/1716/jE8Y8igA7cTaZQk5sV3MfeKl.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/pLJ2YG1Mu1"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01341",
+      "title": "Demon's Souls",
+      "version": "01.000",
+      "sizeBytes": 52076478464,
+      "posterUrl": "https://image.api.playstation.com/vulcan/img/rnd/202011/1717/qHFrrJINxIfsvIyudYAyjfDq.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/s27wImuV3v"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA10595",
+      "title": "Tekken 8 Ultimate Edition",
+      "version": "3.01",
+      "sizeBytes": 107374182400,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202503/1823/e7103bcfbf01cdf24c7485cdc0b7cddcf3ab1bc66bbb3312.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/MVYfEp4KpC"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/wIplRgUZpp"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01467",
+      "title": "Marvels Spider Man Remastered",
+      "version": "01.008.001",
+      "sizeBytes": 71908489953,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202009/3021/QeJWAaLcYNOpCv7yCVZZEOY5.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/7RnyyiLRYU"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03527",
+      "title": "Grand Theft Auto 3 The Definitive Edition",
+      "version": "01.007",
+      "sizeBytes": 5229122683,
+      "posterUrl": "https://upload.wikimedia.org/wikipedia/en/b/be/GTA3boxcover.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/Pge18TzBmN"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02572",
+      "title": "Alan Wake 2 Deluxe Edition",
+      "version": "01.200.007",
+      "sizeBytes": 100351910871,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/2420/fbd0dcc88b31805fc7d49f59b8e0e5d0276403cde7fb8cc8.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/zjsjKoKDmX"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA04404",
+      "title": "Resident Evil 7 Biohazard Gold Edition",
+      "version": "01.004",
+      "sizeBytes": 31686121226,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202206/0207/V6IViuKogBMRtajqjnYrcj0e.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/fyxmer0mwN"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA07411",
+      "title": "Resident Evil 4 Gold Edition",
+      "version": "01.590",
+      "sizeBytes": 79789754941,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202207/2509/85p2Dwh5iDhUzRKe40QeNYh3.png",
+      "downloadLinks": [
+        {
+          "name": "Viki - 7.xx+",
+          "url": "https://vik1ngfile.site/f/ArZnRwmZr0"
+        },
+        {
+          "name": "Viki - 4.xx+",
+          "url": "https://vikingfile.com/f/OVxCfm06CO"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01556",
+      "title": "Resident Evil Village Gold Edition",
+      "version": "01.210",
+      "sizeBytes": 40243843564,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202207/0706/D8YACd9U8RAcdtOVpXeXDpzg.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/tklxPFaddJ"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA06568",
+      "title": "Sword Art Online Fractured Daydream",
+      "version": "1.00",
+      "sizeBytes": 51217485005,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202406/1622/eba0016a085eeb25ca810d040cb0cebfd3f0113eaf700847.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/KwBQvGuH0l"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vik1ngfile.site/f/ZcFSRHTG4A"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA08560",
+      "title": "Split Fiction",
+      "version": "1.50",
+      "sizeBytes": 79134772429,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202502/2109/fa7b01c5bc07e3a802025ad4f8e660ec05bbc7501151c7bd.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/QE1lzf1y46"
+        },
+        {
+          "name": "Data - DLC",
+          "url": "https://datavaults.co/7xnpd4q0iuaw"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03309",
+      "title": "Wreckfest Complete Edition",
+      "version": "01.022",
+      "sizeBytes": 24395414241,
+      "posterUrl": "https://image.api.playstation.com/vulcan/img/rnd/202010/1411/oEeeDj4cUZtceImLuA6DVTt0.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/8DVfMIWn3z"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03865",
+      "title": "GRID Legends",
+      "version": "06.001",
+      "sizeBytes": 38665443082,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202107/1309/bihW4TXl46X2yar8a7L86f9l.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/QfEYv3mkLn"
+        },
+        {
+          "name": "Akirabox - DLC",
+          "url": "https://akirabox.to/E9Qz9PXbb3OL/file"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA07631",
+      "title": "SAROS",
+      "version": "1.00",
+      "sizeBytes": 81067507712,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202509/2318/89c3538003fb34870e745493412408eeeed5f02b32c55d23.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/LKn9OqYxft"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03952",
+      "title": "Resident Evil 3",
+      "version": "1.004",
+      "sizeBytes": 25855703122,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202206/0307/CFAf8koMK6B49DCY5Zk6xFYj.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/J6JGgFOqKS"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA13427",
+      "title": "Horizon Zero Dawn Remastered",
+      "version": "01.008.001",
+      "sizeBytes": 93351114179,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202409/2716/b23608e3b46e3b1f6aebb78a4aa9b1bf4f72a1d99f42ed01.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki - 9.xx+",
+          "url": "https://vikingfile.com/f/ArewFfws5D"
+        },
+        {
+          "name": "Akirabox - 4.xx+ pt.1",
+          "url": "https://akirabox.com/Z9dzBP2vnmk1/file"
+        },
+        {
+          "name": "Akirabox - 4.xx+ pt.2",
+          "url": "https://akirabox.com/vgKGxXw02G8Q/file"
+        },
+        {
+          "name": "Akirabox - 4.xx+ pt.3",
+          "url": "https://akirabox.com/Pbe3Pa25QzlX/file"
+        },
+        {
+          "name": "Akirabox - 4.xx+ pt.4",
+          "url": "https://akirabox.com/k0embbBoamVb/file"
+        },
+        {
+          "name": "Akirabox - 4.xx+ pt.5",
+          "url": "https://akirabox.com/RMKGJK2Z2m1o/file"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA07274",
+      "title": "Tales of Arise",
+      "version": "1.04",
+      "sizeBytes": 36947456164,
+      "posterUrl": "https://image.api.playstation.com/vulcan/img/rnd/202107/2321/PNyon7H1cCjFSHuKJXuWb3wq.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/I9V4J5bZo6"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vik1ngfile.site/f/G3EF6JBRqI"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA28180",
+      "title": "Days Gone Remastered",
+      "version": "1.036.178",
+      "sizeBytes": 49714246451,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202502/1302/a2fa690381bb625c8efca0bbd5210811b9e044ed6f116ab8.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/CvPtiLUZvu"
+        },
+        {
+          "name": "Akirabox pt.1",
+          "url": "https://akirabox.com/1RgzR9DZR3bp/file"
+        },
+        {
+          "name": "Akirabox pt.2",
+          "url": "https://akirabox.com/l5YzMZAPRGyO/file"
+        },
+        {
+          "name": "Akirabox pt.3",
+          "url": "https://akirabox.com/LK0G1bR2Jm91/file"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA07274",
+      "title": "Valkyrie Elysium",
+      "version": "1.00",
+      "sizeBytes": 14388140442,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202206/1509/4lE1NY7aN3y1hSWjgjEwfw5k.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/XCeEeCJa5Z"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA25286",
+      "title": "Crimson Desert Deluxe Edition",
+      "version": "1.000.151",
+      "sizeBytes": 88046829568,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202508/2905/4014211b4c4e8a33b54c01bb91359842a511f535a076e415.jpg",
+      "downloadLinks": [
+        {
+          "name": "Vikingfile - DLC",
+          "url": "https://vikingfile.com/f/3EgKtd0rPm"
+        },
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/MgGsrMBGno"
+        },
+        {
+          "name": "Akirabox pt.1",
+          "url": "https://akirabox.com/jar3XlxKr32d/file"
+        },
+        {
+          "name": "Akirabox pt.2",
+          "url": "https://akirabox.com/dkD3YwBAlGLQ/file"
+        },
+        {
+          "name": "Akirabox pt.3",
+          "url": "https://akirabox.com/ex5z25Mba3Kq/file"
+        },
+        {
+          "name": "Akirabox pt.4",
+          "url": "https://akirabox.com/Zvqzl72g63aD/file"
+        },
+        {
+          "name": "Akirabox pt.5",
+          "url": "https://akirabox.com/qLQ36qlZwm19/file"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA07570",
+      "title": "Mortal Kombat 1",
+      "version": "1.010.001",
+      "sizeBytes": 151945205514,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202305/1515/93797636f47b37b74e9d3740e17ae1306aaf539c7952a703.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/YrlS8dAU32"
+        },
+        {
+          "name": "Mediafire",
+          "url": "https://www.mediafire.com/file/b5q57616m6vdfin/All_30DLCs_Psykzhack.rar/file"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA23372",
+      "title": "REANIMAL",
+      "version": "1.06",
+      "sizeBytes": 11166914970,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202510/2113/68231fa2999db9c3f76b6786e294f2960b19e67b930f6524.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/UjQUPPanLS"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vik1ngfile.site/f/RiBmqppkzz"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02530",
+      "title": "PRAGMATA Deluxe Edition",
+      "version": "1.200",
+      "sizeBytes": 34112777748,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202511/2605/b7ec5836e23affe26c8ad00124a1eddddab5e1bad456c03e.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/wvKjaPcm7e"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/8tEspFM9d4"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA23226",
+      "title": "Black Myth: Wukong",
+      "version": "01.021",
+      "sizeBytes": 107685567529,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202405/2117/59be402814be4dbf2ba860689f76895fc81510e615c925bd.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/F9EVVNPlL5"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01903",
+      "title": "Final Fantasy VII Remake Intergrade",
+      "version": "01.005",
+      "sizeBytes": 115964116992,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202102/1515/KvQytkiBiUJFGPughWMRpkk7.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/7eUl5dG8Wr"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/Afm1iFDmwv"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA17905",
+      "title": "Horizon Forbidden West",
+      "version": "1.030",
+      "sizeBytes": 120226872033,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202010/2915/f2jH2HOP0yYYQtDPd8LjqErv.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/dyG8dcGxIx"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA29343",
+      "title": "Beast of Reincarnation Digital Deluxe Edition",
+      "version": "01.000",
+      "sizeBytes": 29957396890,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202604/2203/db91bba6d10ccd925e1d33832a949659e81a1ac90d672cf8.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/AVA3e8Gf92"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03524",
+      "title": "Grand Theft Auto San Andreas The Definitive Edition",
+      "version": "1.003",
+      "sizeBytes": 24266565222,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202110/2814/4adJ0gjnFRysR59iJSZJFQ1J.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/agwytfio8C"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA06888",
+      "title": "Sonic Superstars",
+      "version": "01.001.008",
+      "sizeBytes": 10114647982,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202307/2416/fec70275e0c46b9e69fcc130f65cd2abc7af951fab2d42d7.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/G6JbQZoVJI"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA04288",
+      "title": "RESIDENT EVIL 2",
+      "version": "01.003",
+      "sizeBytes": 22870700851,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202206/0204/22MNn4z9dJnDmEAtmV4rw3Zq.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/UT3HQ0xlxG"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA09706",
+      "title": "Persona 5 Tactica",
+      "version": "01.001.000",
+      "sizeBytes": 26521423053,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202309/2807/f02fd98c805c78ff1c56aec62054d04fbecf1fc5ba9eeee5.png",
+      "downloadLinks": [
+        {
+          "name": "Gofile",
+          "url": "https://gofile.io/d/UTtIKdWF"
+        },
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/LCyukkMyuB"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03530",
+      "title": "Grand Theft Auto Vice City The Definitive Edition",
+      "version": "01.007",
+      "sizeBytes": 11574936863,
+      "posterUrl": "https://cdn1.epicgames.com/offer/fd6a13a256014a22a83ff2aaacc30e00/EGS_GrandTheftAutoViceCityTheDefinitiveEdition_RockstarGames_S2_1200x1600-18ac3dd32143492b2650144da0cf0ca9",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/77KZvnH6Cv"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA21159",
+      "title": "Silent Hill f",
+      "version": "01.001",
+      "sizeBytes": 38407745044,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202505/0704/ac8ee550a288cb7d095374a35c14ff0fdbf185b56ce7478a.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/dfj7hZqryF"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA29629",
+      "title": "Marvel Cosmic Invasion",
+      "version": "02.002",
+      "sizeBytes": 601295421,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202510/2212/e6a9a53d42e4fb14f48f7464c8a00cd906be3699f4719f7a.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/261oHsGDUz"
+        },
+        {
+          "name": "Akirabox",
+          "url": "https://akirabox.com/vgKGxXvAqG8Q/file"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA26358",
+      "title": "Lost Soul Aside",
+      "version": "01.102",
+      "sizeBytes": 70534100419,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202412/0610/7c7a6a34d376b1e789ceb36f6c0d3bcf3fefeb48655f1cc8.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/6VbUakDCRS"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vik1ngfile.site/f/7m5LPzqNS7"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA30803",
+      "title": "Resident Evil Requiem",
+      "version": "01.200",
+      "sizeBytes": 81604378624,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202512/1205/e0364b3089bbbad7e0a04f87cab6c273172515a134efdf88.png",
+      "downloadLinks": [
+        {
+          "name": "Gofile",
+          "url": "https://gofile.io/d/BlPuufU0"
+        },
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/Sa3IGyuQLO"
+        },
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/JnNcafUdoD"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA17221",
+      "title": "Minecraft",
+      "version": "01.044",
+      "sizeBytes": 891205714,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202407/0401/670c294ded3baf4fa11068db2ec6758c63f7daeb266a35a1.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/7PpxY33pmU"
+        },
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/uWk8OFEtvo"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA10665",
+      "title": "Final Fantasy XVI Complete Edition",
+      "version": "01.003.004",
+      "sizeBytes": 136365211648,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202409/0604/ccaacba7eb692a3765a8ccb2f09bc29280eab92505eabaf5.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/1ekDmk9qcK"
+        },
+        {
+          "name": "Akirabox pt.1",
+          "url": "https://akirabox.com/QN9mEqpLwm6d/file"
+        },
+        {
+          "name": "Akirabox pt.2",
+          "url": "https://akirabox.com/0rpmvp2M7zRg/file"
+        },
+        {
+          "name": "Akirabox pt.3",
+          "url": "https://akirabox.com/RMKGJKMnWm1o/file"
+        },
+        {
+          "name": "Akirabox pt.4",
+          "url": "https://akirabox.com/b5OzdVK6AmB8/file"
+        },
+        {
+          "name": "Akirabox pt.5",
+          "url": "https://akirabox.com/0Kezk72gnzD1/file"
+        },
+        {
+          "name": "Akirabox pt.6",
+          "url": "https://akirabox.com/k0embbM4WmVb/file"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA08668",
+      "title": "Final Fantasy VII Rebirth",
+      "version": "01.080",
+      "sizeBytes": 147918673674,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202308/3005/537b5208a8ee42935286a44b3b981da86d976bf54899bf98.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/jeQp6Pk5VR"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA20397",
+      "title": "Assassins Creed Shadows",
+      "version": "1.019.076",
+      "sizeBytes": 153319595049,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202404/1815/33f39cad34ac468a040ffed5a43149fb4329ec6c73326838.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/ZUINz9Mt4M"
+        },
+        {
+          "name": "Data - DLC",
+          "url": "https://datanodes.to/ftbgwrowjlhc/All_6DLCs_DUPLEX.rar"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03274",
+      "title": "Unbound: Worlds Apart",
+      "version": "01.000",
+      "sizeBytes": 1535450808,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202201/0513/DYG2ZAClpLZ77rxzTIdj9Qws.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/wkoH81CXFD"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA13579",
+      "title": "Blasphemous 2",
+      "version": "1.007.000",
+      "sizeBytes": 2738041651,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202410/1714/1cf876354773c8b7b1aa710ebf69f7dd739769839beebf16.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/58Rws13dEW"
+        },
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/JCt28wlupy"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA04029",
+      "title": "Cyberpunk 2077 Ultimate Edition",
+      "version": "02.120",
+      "sizeBytes": 136923557396,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202111/3013/6bAF2VVEamgKclalI0oBnoAe.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/yrSY6MJi1O"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA21567",
+      "title": "ASTRO BOT",
+      "version": "01.018",
+      "sizeBytes": 38719130173,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202406/0500/0d05cb43413f28a641ac0c40fc272c70bbe194f6ade4b175.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/WM0PZE0Pt3"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA14251",
+      "title": "Mafia The Old Country: Deluxe Edition",
+      "version": "01.008",
+      "sizeBytes": 40372692582,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202504/2416/044c29ea5623bbb31fc1b2db8577621ba7f035b4c679cfdc.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/BgNEiwsE9n"
+        },
+        {
+          "name": "Akirabox pt.1",
+          "url": "https://akirabox.com/EL73g746K39B/file"
+        },
+        {
+          "name": "Akirabox pt.2",
+          "url": "https://akirabox.com/2WVGrd21W3kx/file"
+        },
+        {
+          "name": "Akirabox pt.3",
+          "url": "https://akirabox.com/vgKGxX2DnG8Q/file"
+        },
+        {
+          "name": "Viki (+Arabic Lang)",
+          "url": "https://vikingfile.com/f/AhBrJbjo4v"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA04892",
+      "title": "Tchia",
+      "version": "01.011",
+      "sizeBytes": 3994319585,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202301/2409/NAM99EYphvYksee7eOGTtLCE.JPG",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/E9FculD3K9"
+        },
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/UkgftwCzjs"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01746",
+      "title": "Kena Bridge of Spirits",
+      "version": "02.008",
+      "sizeBytes": 20712479785,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202102/2307/5DwFII1MYsBn48HjmvUu0TEd.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/1bCBagCX5w"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01411",
+      "title": "Marvel's Spider-Man Miles Morales",
+      "version": "01.015.001",
+      "sizeBytes": 56371445760,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202008/1420/HcLcfeQBXd2RiQaCeWQDCIFN.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/pTCubFW6TG"
+        },
+        {
+          "name": "Archive",
+          "url": "https://archive.org/details/SMMiles_PKG"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA29141",
+      "title": "LEGO® Party!",
+      "version": "01.000",
+      "sizeBytes": 6947109601,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202508/0821/ade7404425c20a8c9dfddb1f6fec66f3fa1596046a450efa.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/m93bohPa4i"
+        },
+        {
+          "name": "Rootz",
+          "url": "https://www.rootz.so/d/18zaGO"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA04263",
+      "title": "Grand Theft Auto V",
+      "version": "01.010.002",
+      "sizeBytes": 102982578340,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202202/2816/K6mmm89oNII1iI1aqaClO0wh.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/eX9IBEdTEL"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03016",
+      "title": "Marvel's Spider-Man 2",
+      "version": "01.004.003",
+      "sizeBytes": 114342766838,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202306/1219/60eca3ac155247e21850c7d075d01ebf0f3f5dbf19ccd2a1.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/Kl0CxvJh8Y"
+        },
+        {
+          "name": "Archive",
+          "url": "https://archive.org/details/SM2_FPKG"
+        },
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/WXN3mYDZdc"
+        }
+      ]
+    }
+  ]
+}
