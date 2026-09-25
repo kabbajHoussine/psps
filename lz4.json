@@ -2,6 +2,84 @@
   "name": "GFS Catalog-lz4",
   "packages": [
     {
+      "titleId": "PPSA05813",
+      "title": "The Quarry",
+      "version": "01.000.007",
+      "sizeBytes": 82678120448,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202203/0501/tc67Gmu0MIEY7WMuBi3R7w8p.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/GjfXH50Jdp"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01886",
+      "title": "Evergate",
+      "version": "01.000.003",
+      "sizeBytes": 2147483648,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202102/1802/AYB2VfQ32COKBannqsCPxW8Y.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/t5asuxEfCl"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA17597",
+      "title": "Sonic X Shadow Generations Deluxe Edition",
+      "version": "01.012.000",
+      "sizeBytes": 33285996544,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202405/2708/3956cc20615cb1718ca01f70698107468003cc4193a56bb6.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/YE3IcMQEHF"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA09806",
+      "title": "Peppa Pig: World Adventures",
+      "version": "01.000",
+      "sizeBytes": 1954210120,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202301/1209/IfckwfzgjKU0bHgPmpIbL9TE.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/gTy1YGRspX"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA07587",
+      "title": "Sea of Stars",
+      "version": "01.013",
+      "sizeBytes": 5368709120,
+      "posterUrl": "https://i.ytimg.com/vi/BMComOd9qP4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAL25TRMQZwKv1HUnRCYUF2JuL3WQ",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/E3B367xh3P"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA10665",
+      "title": "Final Fantasy XVI Complete Edition",
+      "version": "01.003.004",
+      "sizeBytes": 173946175488,
+      "posterUrl": "https://image.api.playstation.com/vulcan/ap/rnd/202409/0604/ccaacba7eb692a3765a8ccb2f09bc29280eab92505eabaf5.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/zRqxyuJmkh"
+        }
+      ]
+    },
+    {
       "titleId": "PPSA25217",
       "title": "SUPER ROBOT WARS Y",
       "version": "01.000.000",
