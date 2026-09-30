@@ -2,6 +2,19 @@
   "name": "GFS Catalog-fpkg",
   "packages": [
     {
+      "titleId": "PPSA03671",
+      "title": "Marvels Wolverine",
+      "version": "1.08",
+      "sizeBytes": 100931731456,
+      "posterUrl": "https://dlpsgame.com/wp-content/uploads/2026/09/17-wsc.jpg",
+      "downloadLinks": [
+        {
+          "name": "Ditch",
+          "url": "https://fileditchfiles.st/balpha24/76190aaba13bbd78cafb/PPSA03671-Compressed.7z"
+        }
+      ]
+    },
+    {
       "titleId": "PPSA28997",
       "title": "God of War Sons of Sparta Digital Deluxe Edition",
       "version": "1.08",
