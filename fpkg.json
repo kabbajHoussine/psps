@@ -2,6 +2,864 @@
   "name": "GFS Catalog-fpkg",
   "packages": [
     {
+      "titleId": "PPSA28997",
+      "title": "God of War Sons of Sparta Digital Deluxe Edition",
+      "version": "1.08",
+      "sizeBytes": 7752415969,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/d89cad73b88799601590a408edc70d6bd123113cba317710.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/B9n4QfFdy9"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA09259",
+      "title": "Hell Is Us",
+      "version": "01.007",
+      "sizeBytes": 21474836480,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/3e387e59545ff37d4312cef4c0d25d6eee3156e003b3eded.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/9uZdDeA9KV"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA11386",
+      "title": "007 First Light",
+      "version": "1.18",
+      "sizeBytes": 49209587794,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/4c118c350f176ce39b46d71c8e3526e66c3ce5a0535483fa.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/i2IaWe2QUR"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA07783",
+      "title": "STAR WARS Jedi: Survivor™",
+      "version": "01.000.013",
+      "sizeBytes": 150323855360,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/P9bgtvy2nFHcam3CDXAjAgh9.png",
+      "downloadLinks": [
+        {
+          "name": "Viki pt.1",
+          "url": "https://vik1ngfile.site/f/TlH9iP7hLZ"
+        },
+        {
+          "name": "Viki pt.2",
+          "url": "https://vik1ngfile.site/f/6M9wEMUUhW"
+        },
+        {
+          "name": "Viki pt.3",
+          "url": "https://vikingfile.com/f/32kFCiPye4"
+        },
+        {
+          "name": "Viki pt.4",
+          "url": "https://vikingfile.com/f/jKrZwoVo45"
+        },
+        {
+          "name": "Viki pt.5",
+          "url": "https://vikingfile.com/f/Ij0YfpK753"
+        },
+        {
+          "name": "Viki pt.6",
+          "url": "https://vikingfile.com/f/1FHINDD3al"
+        },
+        {
+          "name": "Viki pt.7",
+          "url": "https://vikingfile.com/f/L4K8WUeRJf"
+        },
+        {
+          "name": "Viki pt.8",
+          "url": "https://vikingfile.com/f/8qP7abAzcp"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA32310",
+      "title": "The Adventures of Elliot: The Millennium Tales",
+      "version": "01.100",
+      "sizeBytes": 13958643712,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/b5a499582e76829925ef74ec1b9b11b7068c93267dfb429b.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/lpOvu5iw1v"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA19461",
+      "title": "SHINOBI: Art of Vengeance",
+      "version": "01.200.000",
+      "sizeBytes": 9663676416,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/919163c7db5eb1b268beac2c6b00f5aea2074fcfb5ba09ba.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/RHwUpyrJM6"
+        },
+        {
+          "name": "Akirabox",
+          "url": "https://akirabox.com/2WVGrde6A3kx/file"
+        },
+        {
+          "name": "Viki - Backport - 4.xx+",
+          "url": "https://vikingfile.com/f/awEBpjsHGe"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/jCJZD3Ro9a"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA28002",
+      "title": "NINJA GAIDEN: Ragebound",
+      "version": "01.006.000",
+      "sizeBytes": 826781204,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/df0470aacb867c83667e0cdc75cdd9c3eea5b32eea1d6586.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/lzysJ3jKa9"
+        },
+        {
+          "name": "Akirabox",
+          "url": "https://akirabox.com/Zvqzl7kon3aD/file"
+        },
+        {
+          "name": "Viki - Backport - 4.xx+",
+          "url": "https://vikingfile.com/f/8Odd5ZT0am"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA23000",
+      "title": "Double Dragon Revive",
+      "version": "01.000.000",
+      "sizeBytes": 10640781476,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/4059ded40574752f889987a10e0a7a31b950469e23db4a80.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/qdZQplbJZD"
+        },
+        {
+          "name": "Akirabox",
+          "url": "https://akirabox.com/BnkmWvywdGR0/file"
+        },
+        {
+          "name": "Viki - Backport - 4.xx+",
+          "url": "https://vikingfile.com/f/wo3bYvxRQ4"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/9nbXHf6lSq"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA16018",
+      "title": "Double Dragon Gaiden: Rise of the Dragons",
+      "version": "01.000.013",
+      "sizeBytes": 689986496,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/ce47b007bc985f46d59efc2a6243f883fc22012b0627309d.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/yCd4TV3G7S"
+        },
+        {
+          "name": "Akirabox",
+          "url": "https://akirabox.com/9AqGQZyxbmMn/file"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/9nbXHf6lSq"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA20800",
+      "title": "Metaphor ReFantazio Deluxe Edition",
+      "version": "1.13",
+      "sizeBytes": 37795712205,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/e148dc7fa4658360199188e1ed14f9d79d3adeec84c82162.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/0SrbLmFPwA"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA25009",
+      "title": "Blue Prince",
+      "version": "02.001",
+      "sizeBytes": 2297807503,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/ec055397b292a94daab0570b7251398b15853c857c1aed45.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/C2waClfFkT"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA32557",
+      "title": "MotoGP 26",
+      "version": "1.000",
+      "sizeBytes": 20401094656,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/f7d7f07d359ba0613bef8b43e1af74becad0e00357c1ccb3.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki - 4.xx+",
+          "url": "https://vikingfile.com/f/9IX2s9JuIj"
+        },
+        {
+          "name": "Viki - 5.xx+",
+          "url": "https://vikingfile.com/f/GY3JidVgce"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA07631",
+      "title": "SAROS",
+      "version": "1.00",
+      "sizeBytes": 84825604096,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/89c3538003fb34870e745493412408eeeed5f02b32c55d23.png",
+      "downloadLinks": [
+        {
+          "name": "Viki - 5.xx+",
+          "url": "https://vik1ngfile.site/f/LKn9OqYxft"
+        },
+        {
+          "name": "Viki - 4.xx+",
+          "url": "https://vikingfile.com/f/y3qIEL4V5b"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03541",
+      "title": "UFC 5",
+      "version": "01.031",
+      "sizeBytes": 52570399703,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/0b3fe53ab2d54998602b41682ef1bd83e63e82d3f9ab8fff.png",
+      "downloadLinks": [
+        {
+          "name": "Viki - 9.xx+",
+          "url": "https://vikingfile.com/f/E09KAtWDBm"
+        },
+        {
+          "name": "Viki - 4.xx+",
+          "url": "https://vikingfile.com/f/Kq7ScsTRsu"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA28420",
+      "title": "Suicide Squad Kill The Justice League",
+      "version": "01.024",
+      "sizeBytes": 109521666048,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/f6a5c5087c8c1f77643d9be400df0ad3fdf2d532a34305a3.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki - 9.xx+",
+          "url": "https://vikingfile.com/f/RebhDFoeIm"
+        },
+        {
+          "name": "Viki - 4.xx+",
+          "url": "https://vikingfile.com/f/OUayyeNFtx"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA28420",
+      "title": "NBA 2K26",
+      "version": "01.017",
+      "sizeBytes": 108447924224,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/bf1813f28484e002f2bc779c6b19c0995cf384d5e1c4688d.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/cpXxOjGQYC"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA20800",
+      "title": "Metaphor ReFantazio",
+      "version": "01.013",
+      "sizeBytes": 38654705664,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/e148dc7fa4658360199188e1ed14f9d79d3adeec84c82162.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/7hk16XyLdL"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA15973",
+      "title": "DYNASTY WARRIORS: ORIGINS",
+      "version": "01.005.000",
+      "sizeBytes": 42949672960,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/2ba9c1b910e2d5544ffa9d2dc648bf5c16008e4244e4b5f2.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/khsdqLVP1g"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03589",
+      "title": "WRC 10",
+      "version": "1.007",
+      "sizeBytes": 35433480192,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/zDBjOW5pENiZT3DHWMMZcE2i.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/E3tIZcLs5M"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02716",
+      "title": "RiMS Racing",
+      "version": "1.006",
+      "sizeBytes": 15032385536,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/3CAcWN2GuvjJ8hkWpNN7a8sY.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/yGtrVayhCC"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA08832",
+      "title": "Raiden IV x Mikado Remix",
+      "version": "1.000",
+      "sizeBytes": 708669604,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/57AFMYaNEpFfbrcKmWofYjf4.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/Awnatkfdn7"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA13356",
+      "title": "Raiden III x MIKADO MANIAX",
+      "version": "1.001",
+      "sizeBytes": 530000038,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/39c67a7487331066cd970fa1ac6ea8d59954af630e0695f9.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/sONtrDj2KG"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA07923",
+      "title": "Tetris Effect: Connected",
+      "version": "2.000.022",
+      "sizeBytes": 3328599654,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/KjVYStE0uxgsVNvSqSCjwVKE.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/4CTyLdP6Kr"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA05424",
+      "title": "World War Z: Aftermath",
+      "version": "01.037",
+      "sizeBytes": 28239409971,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/Z47dRNaJmF1EY4fc22OfZ8p2.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/1VLQtCbBjr"
+        },
+        {
+          "name": "Viki - Backport - 4.xx+",
+          "url": "https://vikingfile.com/f/dJBZsLaXYK"
+        },
+        {
+          "name": "Viki - DLC",
+          "url": "https://vikingfile.com/f/YBKKSj1Ecp"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA09518",
+      "title": "WUCHANG Fallen Feathers Deluxe Edition",
+      "version": "01.013",
+      "sizeBytes": 17501991731,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/9ae422106574a80dc231d257d458c2a967fe7f0bac58c9e7.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/6erp1myGI5"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02629",
+      "title": "Trek To Yomi",
+      "version": "2.000",
+      "sizeBytes": 8482560410,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/IqmtsRpAxBn66nrws0wrgYRf.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/AIPCavwvr1"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA22996",
+      "title": "AAA Dynamic Scenes",
+      "version": "01.003",
+      "sizeBytes": 1181116006,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/08779648db691881e989ed30d81ada6ee8d222deaeba594a.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/ftypvsSM49"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA21607",
+      "title": "The Smurfs - Dreams",
+      "version": "01.002",
+      "sizeBytes": 3221225472,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/edabde33467979b8991baf24e0396d56a6d656b746765a78.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/DOTPLbLibD"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA19446",
+      "title": "Boti: Byteland Overclocked",
+      "version": "01.004",
+      "sizeBytes": 2791728742,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/cd9b3667cf2a27dac2727218d6eac0209716a081cd241684.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/C9enmuVaVj"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA19015",
+      "title": "Arcade Game Zone",
+      "version": "01.003",
+      "sizeBytes": 545000211,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/db36b92cf28e8e622ece5738509e0677f5cd3048e607c488.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/BX0TfqXxGW"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA09682",
+      "title": "Hotline Miami",
+      "version": "01.000.002",
+      "sizeBytes": 341000002,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/55666b5b8c4909b6e89a8b731b9769effda3c7e7af227b12.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/PZcFDKKBGI"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA17697",
+      "title": "Yatzi",
+      "version": "01.000.100",
+      "sizeBytes": 409000072,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/38b4e392e4df50a785d71309b0354aba2323a95e3b612063.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/CWzD2Q9ka8"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA08766",
+      "title": "Cocoon",
+      "version": "01.004",
+      "sizeBytes": 1395864371,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/cc3c2db338f165b2bcc0911de7265c76a77676467ccc4186.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/PQNu0DvdMb"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA07326",
+      "title": "Wonder Boy: The Dragon's Trap",
+      "version": "01.001",
+      "sizeBytes": 1181116006,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/jo0ogPs7RJOM7XEXqmq4rnVU.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/u6GDOFm4rr"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA06328",
+      "title": "Arkanoid Eternal Battle",
+      "version": "01.002",
+      "sizeBytes": 397999587,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/EP4OQQlPrWgb67DporQu6w7O.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/SPgfTm8uj2"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA04702",
+      "title": "AWAY: The Survival Series",
+      "version": "01.009",
+      "sizeBytes": 7838315315,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/HwzvFsrrAwj8zkqJaPSOj34N.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/GqP41FRWzf"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03117",
+      "title": "Crazy Chicken Shooter Edition",
+      "version": "01.000",
+      "sizeBytes": 219000382,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/3gFsWGtRgnnoDXYOpjomVE35.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/sVEPcRQmMj"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02817",
+      "title": "Curved Space",
+      "version": "01.000",
+      "sizeBytes": 827000248,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/NKr6iPaj3EDgaqxKQsrG2dRO.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/r3yMSbUhZZ"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02117",
+      "title": "Observer: System Redux",
+      "version": "01.008",
+      "sizeBytes": 8160437862,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/d5f71e91175c42da22a39a6f2468e2e5a33731a79b323986.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/FZiXvko9Fi"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01907",
+      "title": "Override 2: Super Mech League",
+      "version": "01.007",
+      "sizeBytes": 3543348019,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/96DelpfV6dZDctxG9fIP4AzM.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/4kdKKt2BWy"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01552",
+      "title": "Dirt 5",
+      "version": "06.005",
+      "sizeBytes": 53096533197,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/0UhqjqNJBVttiM1xzQOVlyl9.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/x0OwScwis2"
+        },
+        {
+          "name": "Akirabox pt.1",
+          "url": "https://akirabox.com/BnkmWvXe0GR0/file"
+        },
+        {
+          "name": "Akirabox pt.2",
+          "url": "https://akirabox.com/Zvqzl7Dr63aD/file"
+        },
+        {
+          "name": "Akirabox pt.3",
+          "url": "https://akirabox.com/9AqGQZWk8mMn/file"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01949",
+      "title": "Control Ultimate Edition",
+      "version": "01.004",
+      "sizeBytes": 39084202394,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/09dacbee60ad49d3c1b0857f6e682e9465aa530958fde2a6.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/b5slLQbVDC"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA28795",
+      "title": "Snoopy & The Great Mystery Club",
+      "version": "01.000",
+      "sizeBytes": 3221225472,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/47c374caf7e599ce2de369f17ee059fd2b39258a39ecca88.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/ubwKJp96aO"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA07286",
+      "title": "Road of Death",
+      "version": "01.000",
+      "sizeBytes": 133999758,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/QHGr5oKSM570yKEkHEgeCpkZ.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/diwMQOOyIV"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03061",
+      "title": "void tRrLM();++ //Void Terrarium++",
+      "version": "01.000",
+      "sizeBytes": 334000279,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/hbM0hu67IZBY9O2SyQmoOzB6.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/YaSdWkOkhR"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02688",
+      "title": "Infliction: Extended Cut",
+      "version": "01.003",
+      "sizeBytes": 4402341478,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/VQmgY7SZSSlNwtO0GfQZPjbd.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/5jf1ci0aO0"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03306",
+      "title": "Silt",
+      "version": "01.003",
+      "sizeBytes": 5261334938,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/fCHFuUMSXKhsjGYeNr2RspmU.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/ezB4F7dVNi"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA07810",
+      "title": "Crisis Core Final Fantasy VII Reunion",
+      "version": "1.004",
+      "sizeBytes": 22129818993,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/7GhpNUWSPdoNFdMLroXaPXm8.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/se9x0wkKd7"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA18463",
+      "title": "Baldur's Gate 3 Deluxe Edition",
+      "version": "01.800.700",
+      "sizeBytes": 127775277056,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/25fea10cc309bc24be7c9efe7526d40a03c281a01ea7020a.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/esAA3ELlk9"
+        },
+        {
+          "name": "Akirabox pt.1",
+          "url": "https://akirabox.com/qLQ36qrYwm19/file"
+        },
+        {
+          "name": "Akirabox pt.2",
+          "url": "https://akirabox.com/b5OzdVXvWmB8/file"
+        },
+        {
+          "name": "Akirabox pt.3",
+          "url": "https://akirabox.com/RMKGJK9p8m1o/file"
+        },
+        {
+          "name": "Akirabox pt.4",
+          "url": "https://akirabox.com/N2p3DPKln3Ma/file"
+        },
+        {
+          "name": "Akirabox pt.5",
+          "url": "https://akirabox.com/0rpmvpjlwzRg/file"
+        },
+        {
+          "name": "Akirabox pt.6",
+          "url": "https://akirabox.com/gXeGOAXM63Aa/file"
+        },
+        {
+          "name": "Viki - Backport - 4.xx+",
+          "url": "https://vikingfile.com/f/2DAOtEbMzq"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA26679",
+      "title": "Ninja Gaiden 2 Black",
+      "version": "01.003.000",
+      "sizeBytes": 81572166369,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/163355353ae3a6a3329634e09ab4d4686335e46408fc95ec.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/tHJUMUpWyq"
+        },
+        {
+          "name": "Akirabox pt.1",
+          "url": "https://akirabox.com/E9Qz9XBp23OL/file"
+        },
+        {
+          "name": "Akirabox pt.2",
+          "url": "https://akirabox.com/LK0G1bOwdm91/file"
+        },
+        {
+          "name": "Akirabox pt.3",
+          "url": "https://akirabox.com/2bJG8bxjd3OB/file"
+        },
+        {
+          "name": "Akirabox pt.4",
+          "url": "https://akirabox.com/qw1zebl20GXy/file"
+        },
+        {
+          "name": "Viki - Backport - 4.xx+",
+          "url": "https://vikingfile.com/f/4Z9oy4AAOr"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA05060",
+      "title": "RoboCop Rogue City",
+      "version": "01.006",
+      "sizeBytes": 39728447488,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/6UAdMRqRpbS6J6f6VIBI2kMD.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/fP4prq86vL"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01649",
+      "title": "Call of Duty Modern Warfare 3",
+      "version": "01.055",
+      "sizeBytes": 147102629888,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/904d23d883448ecc0c2afb3c10a3532a4c8e8ba231cc0f2c.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/oAqsVSpMkV"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01687",
+      "title": "Call of Duty Vanguard",
+      "version": "01.027",
+      "sizeBytes": 77309411328,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/iT6LT2yhyHzVq7qGoKnceGny.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/aROArA1RkU"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA23012",
+      "title": "Call of Duty Modern Warfare 2",
+      "version": "01.001",
+      "sizeBytes": 111669149696,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/iQGgKYUg9YwjPVNM0kE8jeRN.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/vFSDVT92nA"
+        },
+        {
+          "name": "Viki - Backport - 4.xx+",
+          "url": "https://vikingfile.com/f/UmzVpKE3A1"
+        }
+      ]
+    },
+    {
       "titleId": "PPSA02050",
       "title": "Call of Duty Black Ops Cold War",
       "version": "01.040",
