@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/schemas/catalog.schema.json",
+  "title": "GFS Catalog document",
+  "description": "A catalog file in this repo (fpkg.json or lz4.json): a named list of PS5 packages with locally mirrored poster images.",
+  "type": "object",
+  "required": ["name", "packages"],
+  "properties": {
+    "name": {
+      "description": "Catalog identifier, e.g. \"GFS Catalog-fpkg\".",
+      "type": "string",
+      "minLength": 1
+    },
+    "packages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/package"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "package": {
+      "title": "Catalog package",
+      "description": "One PS5 game package entry. Key order is part of the house style: titleId, title, version, sizeBytes, posterUrl, downloadLinks.",
+      "type": "object",
+      "required": [
+        "titleId",
+        "title",
+        "version",
+        "sizeBytes",
+        "posterUrl",
+        "downloadLinks"
+      ],
+      "properties": {
+        "titleId": {
+          "description": "PlayStation title id: PPSA + 5 digits.",
+          "type": "string",
+          "pattern": "^PPSA[0-9]{5}$"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "description": "Upstream version string, e.g. \"01.001.005\". Free-form: the source site is inconsistent.",
+          "type": "string",
+          "minLength": 1
+        },
+        "sizeBytes": {
+          "type": "integer",
+          "exclusiveMinimum": 0
+        },
+        "posterUrl": {
+          "description": "Poster mirrored into this repo. The referenced file must exist in images/; that check is not expressible here and lives in tools/validate-catalog.mjs.",
+          "type": "string",
+          "pattern": "^https://raw\\.githubusercontent\\.com/kabbajHoussine/psps/.+/images/(?!\\.\\.?$)[^/]+$"
+        },
+        "downloadLinks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/downloadLink"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "downloadLink": {
+      "title": "Download link",
+      "type": "object",
+      "required": ["name", "url"],
+      "properties": {
+        "name": {
+          "description": "Host or label shown to the user, e.g. \"Viki - 5.xx+\".",
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "pattern": "^https://"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

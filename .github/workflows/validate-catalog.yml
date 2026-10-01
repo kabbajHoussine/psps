@@ -1,0 +1,27 @@
+name: Validate catalog
+
+# Gate every pull request and every push to the default branch: a catalog that
+# does not validate cannot merge.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate catalog JSON
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # No install step: the validator and its tests use only Node's standard
+      # library, so there is nothing to npm-install and no cache to prime.
+      - name: Validate catalogs and run validator tests
+        run: npm test
