@@ -2,27 +2,54 @@
   "name": "GFS Catalog-fpkg",
   "packages": [
     {
-      "titleId": "PPSA03671",
-      "title": "Marvels Wolverine",
-      "version": "1.08",
-      "sizeBytes": 100931731456,
-      "posterUrl": "https://dlpsgame.com/wp-content/uploads/2026/09/17-wsc.jpg",
+      "titleId": "PPSA12544",
+      "title": "Hollow Knight: Silksong",
+      "version": "01.000.010",
+      "sizeBytes": 2426656522,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/d975a2a2d80276d9891d8d3430fb8ec7ed2e4ad807707e76.png",
       "downloadLinks": [
         {
-          "name": "Keeper direct",
-          "url": "https://charlie.fileditchstuff5sept.com/balpha24/76190aaba13bbd78cafb/PPSA03671-Compressed.7z?md5=_J2aCfJ3TRbma_DttDZR8A&expires=1790851483"
-        },
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/moThjWD3sg"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA03671",
+      "title": "Marvel's Wolverine",
+      "version": "01.001.005",
+      "sizeBytes": 101683350733,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/5ba04b023e0b4c4aa7fbdbf2170262a52bc0384ee44efce0.jpg",
+      "downloadLinks": [
         {
-          "name": "Data",
-          "url": "https://datanodes.to/n25kduu9uekp"
-        },
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/PdaIyF1kww"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA28183",
+      "title": "Assassin's Creed Black Flag Resynced",
+      "version": "1.06",
+      "sizeBytes": 64564095877,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/5f6f9949966716f0f2185bb60c2eeec67335135a838cdc89.jpg",
+      "downloadLinks": [
         {
-          "name": "Akia direct",
-          "url": "https://akdl.cybar.to/E9Qz9XelW3OL"
-        },
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/G0jT8ivVcr"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA18605",
+      "title": "READY OR NOT",
+      "version": "01.001.008",
+      "sizeBytes": 28862180229,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/da9f50007c771345aba1636b0e3aa47e3210fa36991b36f7.jpg",
+      "downloadLinks": [
         {
-          "name": "Keeper",
-          "url": "https://filekeeper.net/enlx2jgat4rz"
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/vmpjpJrnBk"
         }
       ]
     },
@@ -1086,6 +1113,10 @@
         {
           "name": "Akirabox",
           "url": "https://akirabox.com/wgWGq7Zxx34o/file"
+        },
+        {
+          "name": "Viki (+Arabic Lang)",
+          "url": "https://vikingfile.com/f/gZFqC0cJdt"
         }
       ]
     },
@@ -1430,6 +1461,10 @@
         {
           "name": "Viki",
           "url": "https://vikingfile.com/f/wzZGG6QuRQ"
+        },
+        {
+          "name": "Viki (Arabic Lang)",
+          "url": "https://vikingfile.com/f/3XNAnnCHjy"
         }
       ]
     },
@@ -1706,6 +1741,10 @@
         {
           "name": "Viki",
           "url": "https://vik1ngfile.site/f/s2vefaaGyJ"
+        },
+        {
+          "name": "Viki (+Arabic Lang)",
+          "url": "https://vikingfile.com/f/CE6dsmTpu9"
         }
       ]
     },
@@ -1774,19 +1813,6 @@
       ]
     },
     {
-      "titleId": "PPSA28420",
-      "title": "NBA 2K26",
-      "version": "01.017",
-      "sizeBytes": 108447924224,
-      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/bf1813f28484e002f2bc779c6b19c0995cf384d5e1c4688d.png",
-      "downloadLinks": [
-        {
-          "name": "Viki",
-          "url": "https://vikingfile.com/f/yh0pXcTEBP"
-        }
-      ]
-    },
-    {
       "titleId": "PPSA15368",
       "title": "Contra Operation Galuga",
       "version": "01.003",
@@ -1824,7 +1850,7 @@
       "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/64318c72f8ee8197b057e027c8bb8edbe459ed05126851e1.png",
       "downloadLinks": [
         {
-          "name": "Viki",
+          "name": "Viki (+Arabic Lang)",
           "url": "https://vikingfile.com/f/DIjEtL8L91"
         }
       ]
@@ -1839,19 +1865,6 @@
         {
           "name": "Viki",
           "url": "https://vikingfile.com/f/PxbzVXcuFd"
-        }
-      ]
-    },
-    {
-      "titleId": "PPSA28420",
-      "title": "Suicide Squad Kill The Justice League",
-      "version": "01.024",
-      "sizeBytes": 109521666048,
-      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/f6a5c5087c8c1f77643d9be400df0ad3fdf2d532a34305a3.jpg",
-      "downloadLinks": [
-        {
-          "name": "Viki",
-          "url": "https://vikingfile.com/f/RebhDFoeIm"
         }
       ]
     },
@@ -1919,19 +1932,6 @@
         {
           "name": "Viki",
           "url": "https://vikingfile.com/f/r8nLSTSt6b"
-        }
-      ]
-    },
-    {
-      "titleId": "PPSA03541",
-      "title": "UFC 5",
-      "version": "01.031",
-      "sizeBytes": 52570399703,
-      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/0b3fe53ab2d54998602b41682ef1bd83e63e82d3f9ab8fff.png",
-      "downloadLinks": [
-        {
-          "name": "Viki",
-          "url": "https://vikingfile.com/f/E09KAtWDBm"
         }
       ]
     },
@@ -2048,6 +2048,10 @@
         {
           "name": "Viki",
           "url": "https://vikingfile.com/f/mswLOf7xXi"
+        },
+        {
+          "name": "Viki (+Arabic Lang)",
+          "url": "https://vikingfile.com/f/16GvEyOTC4"
         }
       ]
     },
@@ -2636,7 +2640,7 @@
     },
     {
       "titleId": "PPSA07809",
-      "title": "Final Fantasy Vll Crisis Core Reunion",
+      "title": "Crisis Core Final Fantasy VII Reunion",
       "version": "1.04",
       "sizeBytes": 21925808046,
       "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/7GhpNUWSPdoNFdMLroXaPXm8.png",
@@ -3017,19 +3021,6 @@
       ]
     },
     {
-      "titleId": "PPSA07631",
-      "title": "SAROS",
-      "version": "1.00",
-      "sizeBytes": 81067507712,
-      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/89c3538003fb34870e745493412408eeeed5f02b32c55d23.png",
-      "downloadLinks": [
-        {
-          "name": "Viki",
-          "url": "https://vik1ngfile.site/f/LKn9OqYxft"
-        }
-      ]
-    },
-    {
       "titleId": "PPSA03952",
       "title": "Resident Evil 3",
       "version": "1.004",
@@ -3100,19 +3091,19 @@
       "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/a2fa690381bb625c8efca0bbd5210811b9e044ed6f116ab8.jpg",
       "downloadLinks": [
         {
-          "name": "Viki",
+          "name": "Viki - 4.xx+",
           "url": "https://vikingfile.com/f/CvPtiLUZvu"
         },
         {
-          "name": "Akirabox pt.1",
+          "name": "Akirabox - 4.xx+ pt.1",
           "url": "https://akirabox.com/1RgzR9DZR3bp/file"
         },
         {
-          "name": "Akirabox pt.2",
+          "name": "Akirabox - 4.xx+ pt.2",
           "url": "https://akirabox.com/l5YzMZAPRGyO/file"
         },
         {
-          "name": "Akirabox pt.3",
+          "name": "Akirabox - 4.xx+ pt.3",
           "url": "https://akirabox.com/LK0G1bR2Jm91/file"
         },
         {
@@ -3120,7 +3111,7 @@
           "url": "https://vikingfile.com/f/52Tghsqmrt"
         },
         {
-          "name": "Viki - DLC - 10.xx+",
+          "name": "Viki - DLC",
           "url": "https://vikingfile.com/f/0AvdV3Z3jm"
         }
       ]
@@ -3221,12 +3212,20 @@
       "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/b7ec5836e23affe26c8ad00124a1eddddab5e1bad456c03e.jpg",
       "downloadLinks": [
         {
-          "name": "Viki",
+          "name": "Viki - 5.xx+",
           "url": "https://vik1ngfile.site/f/wvKjaPcm7e"
         },
         {
-          "name": "Viki - DLC",
+          "name": "Viki - DLC - 5.xx+",
           "url": "https://vikingfile.com/f/8tEspFM9d4"
+        },
+        {
+          "name": "Viki - 4.xx+",
+          "url": "https://vikingfile.com/f/nXXklDVayG"
+        },
+        {
+          "name": "Viki - DLC - 4.xx+",
+          "url": "https://vikingfile.com/f/nWyzuPkbAo"
         }
       ]
     },
