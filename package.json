@@ -5,10 +5,10 @@
   "description": "PS5 game package download catalog: static JSON data files and mirrored poster images.",
   "type": "module",
   "scripts": {
-    "test": "node --test \"tools/*.test.mjs\" && node tools/validate-catalog.mjs",
+    "test": "node --test tools/*.test.mjs && node tools/validate-catalog.mjs",
     "validate": "node tools/validate-catalog.mjs"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   }
 }

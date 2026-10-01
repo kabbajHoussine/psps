@@ -64,8 +64,9 @@ npm run validate                      # the default files
 node tools/validate-catalog.mjs path/to/catalog.json
 ```
 
-No dependencies, so there is nothing to install; Node 18 or newer is all that is
-needed.
+No dependencies, so there is nothing to install; Node 20 or newer is all that is
+needed. (The `test` script relies on the shell expanding `tools/*.test.mjs`,
+because `node --test` only learned to glob for itself in Node 22.)
 
 ### What is checked
 
