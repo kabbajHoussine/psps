@@ -161,9 +161,40 @@ inherited breakage from blocking every unrelated pull request.
 runs `npm test` on every pull request and on pushes to `main`. A PR containing an
 invalid entry fails the check.
 
+## Automatic sync
+
+[`.github/workflows/sync-fpkg.yml`](.github/workflows/sync-fpkg.yml) runs the
+refresh described under
+[How the data is refreshed](#how-the-data-is-refreshed) on its own, once a day
+(`17 3 * * *` UTC), and on demand via **Actions → Sync fpkg catalog → Run
+workflow** (tick *dry_run* to only print the diff). A run:
+
+1. fetches the export with `tools/fetch-export.sh`;
+2. merges it with `tools/sync-fpkg.mjs` (add/update/remove packages, download any
+   poster `images/` is missing, rewrite `posterUrl`);
+3. validates with `tools/validate-catalog.mjs`;
+4. opens or updates a pull request from the `automation/fpkg-sync` branch — the
+   workflow has no write access to `main` and never pushes to it.
+
+If the merge fails — the export cannot be fetched, or a poster will not download
+— the job fails and `fpkg.json` is left exactly as it was, so a broken upstream
+day cannot leave a half-updated catalog behind. If the export has not changed,
+the run exits cleanly without opening a pull request.
+
+**If GitHub Actions is unavailable** (disabled for the repo, out of minutes on a
+private repo, or the `schedule` trigger dropped after 60 days without activity),
+nothing runs and the catalog silently goes stale. The schedule is then a manual
+job: run the three commands above from a checkout, or trigger the workflow by
+hand, and open the PR yourself. See
+[`docs/upstream-export.md`](docs/upstream-export.md) for what to do when the
+export endpoint itself is down — which it was on 2026-10-03, when the whole
+upstream site answered `404 error code: 1042`.
+
 ## Adding an entry by hand
 
-Usually you would re-run the sync instead (below), but to add one entry directly:
+Usually you would re-run the sync instead (see
+[How the data is refreshed](#how-the-data-is-refreshed)), but to add one entry
+directly:
 
 1. Append the package object to `packages` in `fpkg.json`, following the key
    order and 2-space indent above.
@@ -202,11 +233,13 @@ node tools/sync-fpkg.mjs /tmp/fpkg.export.json
 
 `tools/sync-fpkg.mjs` mirrors every package in the export in upstream order,
 rewrites `posterUrl` to the repo's `images/` link, downloads any poster not
-mirrored yet (existing images are never re-fetched), writes `fpkg.json` as
-2-space-indented JSON with a trailing newline, and **refuses to finish if any
-`posterUrl` would name a file missing from `images/`**. It is idempotent —
-running it twice downloads nothing the second time. It currently syncs
-`fpkg.json` only; `lz4.json` is mirrored by hand.
+mirrored yet (existing images are never re-fetched), and writes `fpkg.json` as
+2-space-indented JSON with a trailing newline. It is **all-or-nothing**: if a
+poster will not download — or any `posterUrl` would name a file missing from
+`images/` — it deletes the images it fetched, leaves `fpkg.json` exactly as it
+was and exits non-zero, so a failed sync never leaves a half-updated catalog.
+It is idempotent — running it twice downloads nothing the second time. It
+currently syncs `fpkg.json` only; `lz4.json` is mirrored by hand.
 
 Then check and commit:
 

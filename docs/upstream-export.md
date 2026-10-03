@@ -175,3 +175,50 @@ export:
 - 2 repo entries absent upstream (the two older spellings above).
 - 9 shared entries differ only in download-link labels (e.g. `Viki` → `Viki - 9.xx+`,
   `Viki - 4.xx+`), and 1 also changed size (`SAROS`).
+
+## The sync, and what happens when the endpoint is not there
+
+The pieces above are wired together by
+[`tools/sync-fpkg.mjs`](../tools/sync-fpkg.mjs) and run automatically by
+[`.github/workflows/sync-fpkg.yml`](../.github/workflows/sync-fpkg.yml) once a day and on
+`workflow_dispatch`. The whole loop is dependency-free Node, so nothing needs installing:
+
+```bash
+tools/fetch-export.sh fpkg /tmp/fpkg.export.json   # 1. the export
+node tools/sync-fpkg.mjs /tmp/fpkg.export.json     # 2. merge + mirror posters
+node tools/validate-catalog.mjs fpkg.json          # 3. validate
+git status --short                                 # 4. empty = nothing to do
+```
+
+### The endpoint is unversioned, so plan for it to break
+
+`/api/export` is not a published API (see *Fragility* above), and it can be **entirely
+gone**. On 2026-10-03 the whole host was down — the site root as well as every `/api/*`
+path returned `404` with a Cloudflare body `error code: 1042`, i.e. a host-level failure,
+not a change in the export's shape:
+
+```
+$ curl -sS -o /dev/null -w '%{http_code}\n' 'https://pfs-library.xetdy-am.workers.dev/api/export?pack=fpkg'
+404
+$ curl -sS 'https://pfs-library.xetdy-am.workers.dev/'
+error code: 1042
+```
+
+This is why the workflow's first step is `tools/fetch-export.sh`, which fails on a
+non-200 with the status and a snippet of the body: a down site must fail the job loudly,
+not surface later as a confusing diff. Nothing in the sync path fabricates or caches a
+catalog, so when the upstream is gone the run simply fails and `fpkg.json` keeps its last
+good contents until the site is back.
+
+Because a silent stall is the real risk, the run is checked in two places: a failure
+notifies the repo's watchers through the normal Actions notification, and a *stale* repo
+is visible from the `Sync fpkg catalog` workflow's last-run time in the Actions tab.
+There is no third-party uptime monitor — a daily endpoint with no owner to page would
+not have much to page *to*.
+
+The same failure mode covers the schedule itself: **GitHub disables a `schedule` trigger
+after 60 days with no repository activity**, and a private repo can run out of Actions
+minutes. Either way the job stops running and nothing announces it. Re-enable it from the
+Actions tab, or fall back to the manual four commands above — the sync does not depend on
+Actions to be correct, only to be automatic.
+

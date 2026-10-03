@@ -1,0 +1,162 @@
+name: Sync fpkg catalog
+
+# Keep fpkg.json tracking the upstream GFS Catalog on its own, once a day.
+#
+# How the export is obtained is documented in docs/upstream-export.md; the merge
+# itself is tools/sync-fpkg.mjs. This workflow only ever opens a pull request on
+# its own automation branch — it never commits to main. QA still reviews every
+# sync like any other PR, and the "Validate catalog" check re-runs on it.
+#
+# Deliberately a schedule *in the repo*: an agent-side timer would be tied to
+# whichever machine happened to be running, and would stop the moment that
+# session ended. A cron in the workflow file is the durable 24-hour clock.
+
+on:
+  schedule:
+    # 03:17 UTC daily. Off the hour on purpose: GitHub queues scheduled runs more
+    # heavily at :00, so a non-round minute is less likely to be delayed.
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Run the sync and print the diff, but open no pull request
+        type: boolean
+        default: false
+
+# Only what a run needs: push the automation branch (contents) and open or
+# update its pull request. No other scope, and no access to secrets.
+permissions:
+  contents: write
+  pull-requests: write
+
+# One sync at a time. A second run waits for the first rather than racing it for
+# the automation branch.
+concurrency:
+  group: sync-fpkg
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Sync fpkg.json from upstream
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          # Full history so the automation branch can be fetched and the commit
+          # ranges compared without a shallow boundary getting in the way.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # 1. The upstream export. fetch-export.sh checks the HTTP status and parses
+      #    the body, so a down site, a moved endpoint or an HTML error page fails
+      #    here with the status and a snippet of the body — not later, as a
+      #    mysterious diff.
+      - name: Fetch upstream fpkg export
+        run: tools/fetch-export.sh fpkg /tmp/fpkg.export.json
+
+      # 2. Merge into fpkg.json and download any poster images/ is missing.
+      #    All-or-nothing: if a single poster will not download, the script
+      #    restores the images it fetched and leaves fpkg.json untouched. So a
+      #    failure here cannot leave a half-updated catalog to be committed.
+      - name: Merge into fpkg.json
+        run: |
+          set -o pipefail
+          node tools/sync-fpkg.mjs /tmp/fpkg.export.json | tee /tmp/sync-report.txt
+
+      # 3. A PR is never opened for a catalog that does not validate. This is the
+      #    same validator the pull_request check runs, so a sync that would fail
+      #    CI stops here instead, with the reason in the log.
+      - name: Validate the merged catalog
+        run: node tools/validate-catalog.mjs fpkg.json
+
+      # 4. Nothing to do is a clean, successful exit — no branch, no PR.
+      - name: Detect changes
+        id: changes
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "no changes: fpkg.json and images/ already match the upstream export"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "--- working tree vs main ---"
+            git status --short
+            git diff --stat
+          fi
+
+      - name: Commit and push the automation branch
+        if: steps.changes.outputs.changed == 'true' && inputs.dry_run != true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          BRANCH="automation/fpkg-sync"
+
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+          git checkout -b "$BRANCH"
+          git add fpkg.json images
+          git commit \
+            -m "Sync fpkg.json with the upstream export" \
+            -m "Automated mirror of GET /api/export?pack=fpkg: fpkg.json plus any poster image missing from images/. Opened by .github/workflows/sync-fpkg.yml."
+
+          # A guard, not a formality: this workflow must never be able to push
+          # anything but its own branch.
+          [ "$(git rev-parse --abbrev-ref HEAD)" = "$BRANCH" ] || {
+            echo "::error::refusing to push from $(git rev-parse --abbrev-ref HEAD)"; exit 1;
+          }
+
+          # Reuse one long-lived branch so a run that lands while the previous
+          # sync PR is still open updates that PR instead of opening a duplicate.
+          # Fetching it first primes the remote-tracking ref that
+          # --force-with-lease checks against, so the push is only allowed to
+          # replace the exact commit this run started from.
+          git fetch origin "$BRANCH" || true
+          git push --force-with-lease origin "$BRANCH"
+
+          {
+            echo "Automated sync of \`fpkg.json\` from the upstream GFS Catalog export"
+            echo "(\`GET /api/export?pack=fpkg\` — see [\`docs/upstream-export.md\`](${{ github.server_url }}/${{ github.repository }}/blob/main/docs/upstream-export.md))."
+            echo
+            echo "Run: [\`${{ github.run_id }}\`](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
+            echo
+            echo "### Changed"
+            echo
+            echo '```'
+            git show --stat --format= HEAD
+            echo '```'
+            echo
+            echo "### Sync report"
+            echo
+            echo '```'
+            cat /tmp/sync-report.txt
+            echo '```'
+            echo
+            echo "Opened automatically by \`.github/workflows/sync-fpkg.yml\`. QA reviews it like any other PR."
+          } > /tmp/pr-body.md
+
+          if [ "$(gh pr list --head "$BRANCH" --state open --json number --jq 'length')" = "0" ]; then
+            gh pr create --base main --head "$BRANCH" \
+              --title "Sync fpkg.json with the upstream export ($(date -u +%Y-%m-%d))" \
+              --body-file /tmp/pr-body.md
+          else
+            echo "updated the open sync pull request for $BRANCH"
+          fi
+
+      - name: Dry run summary
+        if: steps.changes.outputs.changed == 'true' && inputs.dry_run == true
+        run: |
+          echo "dry run: changes were produced and validated, but no branch or pull request was created"
+          git status --short
+          git diff --stat
+
+      - name: Nothing to sync
+        if: steps.changes.outputs.changed != 'true'
+        run: |
+          echo "no changes: fpkg.json and images/ already match the upstream export"
