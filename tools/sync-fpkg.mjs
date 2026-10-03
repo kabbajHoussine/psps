@@ -12,8 +12,14 @@
  *      house-style fields and their order;
  *   2. rewrites posterUrl to the repo's own images/ raw link, downloading any
  *      poster that is not mirrored yet (existing images are never re-fetched);
- *   3. writes fpkg.json as 2-space-indented JSON with a trailing newline;
- *   4. refuses to finish if any posterUrl would name a file missing from images/.
+ *   3. checks that every posterUrl names a file that is really in images/;
+ *   4. writes fpkg.json as 2-space-indented JSON with a trailing newline.
+ *
+ * It is all-or-nothing: if even one package cannot be mirrored — a poster that
+ * will not download, or a posterUrl that is not https — fpkg.json is left
+ * completely untouched and the images that run fetched are rolled back. A failed
+ * sync therefore never leaves a half-updated catalog behind (which CI or an
+ * automated run could otherwise commit), and is safe to simply retry.
  *
  * It is intentionally dependency-free (Node's standard library only, Node 18+
  * for global fetch) and idempotent: running it twice downloads nothing the
@@ -34,7 +40,7 @@
  * decision, not a sync one. It reports them so they stay visible.
  */
 
-import { mkdirSync, readFileSync, writeFileSync, existsSync, statSync } from "node:fs";
+import { mkdirSync, readFileSync, writeFileSync, existsSync, statSync, unlinkSync } from "node:fs";
 import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -155,7 +161,6 @@ async function main(argv) {
   const downloaded = [];
   const reused = [];
   const unresolved = [];
-  const duplicates = new Map();
 
   for (const pkg of exportDoc.packages) {
     for (const field of FIELDS) {
@@ -163,8 +168,6 @@ async function main(argv) {
         fail(`upstream package ${pkg.titleId} is missing "${field}"`);
       }
     }
-
-    duplicates.set(pkg.titleId, (duplicates.get(pkg.titleId) ?? 0) + 1);
 
     const prior = takeExisting(existingById.get(pkg.titleId), pkg);
     let posterUrl = reusablePoster(prior);
@@ -194,12 +197,34 @@ async function main(argv) {
     entries.push(toEntry(pkg, posterUrl));
   }
 
-  // A catalog that points at a missing image must never be written.
+  // Every upstream package must have produced an entry, and every entry must
+  // point at a file that is really in images/. If anything is off we have NOT
+  // written fpkg.json yet, so undo the fetched images and bail — the caller
+  // (and any scheduled job) sees a whole repo, not a half-synced one.
+  const beforeWrite = (verb) => {
+    for (const filename of downloaded) {
+      try {
+        unlinkSync(join(IMAGES_DIR, filename));
+      } catch {
+        // Already gone or never written; nothing to undo.
+      }
+    }
+    console.error(`sync-fpkg: ${verb}; fpkg.json was NOT modified (removed ${downloaded.length} image(s) fetched this run)`);
+    process.exit(1);
+  };
+
   for (const entry of entries) {
     const match = POSTER_RE.exec(entry.posterUrl);
     if (!match || !isFile(join(IMAGES_DIR, match[1]))) {
-      fail(`refusing to write: ${entry.titleId} posterUrl names a missing file`);
+      beforeWrite(`refusing to write: ${entry.titleId} posterUrl names a file missing from images/`);
     }
+  }
+
+  if (unresolved.length > 0) {
+    for (const { titleId, title, url, reason } of unresolved) {
+      console.error(`  - ${titleId} / ${title}: ${reason}${url ? ` <${url}>` : ""}`);
+    }
+    beforeWrite(`${unresolved.length} package(s) could not be mirrored`);
   }
 
   const doc = { name: exportDoc.name, packages: entries };
@@ -284,7 +309,13 @@ async function main(argv) {
     }
   }
 
-  const dupes = [...duplicates].filter(([, n]) => n > 1);
+  // Upstream lists some titleIds more than once; the mirror keeps them as-is, so
+  // surface the count here (the catalog schema cannot express uniqueness).
+  const titleIdCounts = new Map();
+  for (const entry of entries) {
+    titleIdCounts.set(entry.titleId, (titleIdCounts.get(entry.titleId) ?? 0) + 1);
+  }
+  const dupes = [...titleIdCounts].filter(([, n]) => n > 1);
 
   const show = (title, list) => {
     if (list.length === 0) return;
@@ -300,12 +331,7 @@ async function main(argv) {
   show("dropped download links (url present before, absent upstream)", droppedLinks);
   show("duplicate titleIds upstream (mirrored as-is)", dupes.map(([id, n]) => `${id} x${n}`));
   show("downloaded images", downloaded);
-  show("UNRESOLVED", unresolved);
 
-  if (unresolved.length > 0) {
-    console.log(`\n${unresolved.length} package(s) could not be resolved; fpkg.json was written without them.`);
-    return 1;
-  }
   return 0;
 }
 
