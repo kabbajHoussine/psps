@@ -14,9 +14,11 @@ the repo is data plus the poster images it points at.
 | `tools/export-via-ui.mjs` | Fallback: drive the site's own export button |
 | `samples/fpkg.export.json` | A point-in-time capture of the upstream export |
 
-Both catalogs are copies of the **GFS Catalog** site
-(<https://pfs-library.xetdy-am.workers.dev/>), with `posterUrl` rewritten to a
-local `images/` path. Only that one field differs from upstream.
+Both catalogs are mirrored from the **GFS Catalog** site
+(<https://pfs-library.xetdy-am.workers.dev/>): `posterUrl` is rewritten to a
+local `images/` path, and a few entries otherwise differ from the upstream export
+(see [Known drift vs upstream](#known-drift-vs-upstream)). One entry —
+`PPSA03671` — still points at an external host rather than `images/`.
 
 ## Catalog format
 
@@ -51,7 +53,7 @@ Each entry in `packages` has exactly these six keys, in this order:
 | --- | --- | --- |
 | `titleId` | string | `PPSA` + 5 digits, e.g. `PPSA32557` |
 | `title` | string | Display name; may contain `'`, `:`, `™`, `-` |
-| `version` | string | Verbatim from upstream — padding is inconsistent (`"1.08"`, `"01.000.010"`) |
+| `version` | string | Verbatim from upstream — padding is inconsistent (`"1.08"`, `"01.000.011"`) |
 | `sizeBytes` | integer | Bytes, not GB or MB |
 | `posterUrl` | string | `raw.githubusercontent.com` link into `images/` — see below |
 | `downloadLinks` | array | `{ "name": string, "url": string }`, in upstream order |
@@ -61,7 +63,7 @@ Two rules the JSON itself does not enforce:
 - **`titleId` is not unique.** The upstream export ships duplicates (the same id
   for different games), and `fpkg.json` has inherited several. Do not key
   entries by `titleId` alone.
-- **`posterUrl` must resolve.** Every `posterUrl` points at
+- **`posterUrl` must resolve.** Every `posterUrl` should point at
 
   ```
   https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/<filename>
@@ -70,6 +72,12 @@ Two rules the JSON itself does not enforce:
   and `<filename>` **must exist in `images/`**. Never commit a `posterUrl` whose
   file is missing — the app has no fallback. Most filenames are opaque
   (`f7d7f07d…b3.jpg`, `01Slmbo3uyEiyiomq7TxBBLl.png`); `.jpg` and `.png` both occur.
+
+  One entry currently breaks this rule: `fpkg.json` `PPSA03671`
+  ("Marvels Wolverine") still points at
+  `https://dlpsgame.com/wp-content/uploads/2026/09/17-wsc.jpg`. That legacy
+  external URL should be replaced with a local `images/` path or removed; until
+  then any check for the prefix has exactly one exception to allow.
 
 ### Formatting
 
@@ -127,12 +135,34 @@ changed packages and downloading posters — is tracked in **issue #4**
 is manual: fetch the export, diff it against `fpkg.json`, merge by hand, and
 mirror any new posters into `images/`.
 
+### Known drift vs upstream
+
+`fpkg.json` is *not* a clean copy of the upstream export. Compared with
+`samples/fpkg.export.json` (the 2026-10-01 capture), it differs beyond the
+expected `posterUrl` rewrite:
+
+- **Two entries are renamed or re-spelled.** `PPSA03671` is `"Marvels Wolverine"`
+  locally but `"Marvel's Wolverine"` upstream — and its `version` (`1.08` vs
+  `01.001.005`), `sizeBytes`, links and `posterUrl` all differ too, so it looks
+  locally curated. `PPSA07809` is `"Final Fantasy Vll Crisis Core Reunion"`
+  locally but `"Crisis Core Final Fantasy VII Reunion"` upstream (note the
+  lower-case `Vll`).
+- **Three upstream ids are absent locally:** `PPSA12544` (Hollow Knight:
+  Silksong), `PPSA18605` (READY OR NOT) and `PPSA28183` (Assassin's Creed Black
+  Flag Resynced).
+- **`PPSA03671`'s `posterUrl` is not mirrored** (see the rule above).
+
+Do not "fix" these by hand here — reconciling them is issue #4's job. They are
+recorded so the next sync starts from the real difference rather than rediscovering it.
+
 ## Gotchas
 
 - `sizeBytes` changes constantly and is large (`20401094656`, not `20.4 GB`) —
   store it as an integer.
-- `posterUrl` is the **only** field this repo rewrites relative to upstream.
-  Anything else diverging from the export is drift.
+- `posterUrl` is the field this repo rewrites relative to upstream — for all but
+  one entry. Beyond that rewrite, `PPSA03671` and `PPSA07809` also diverge in
+  `title`/`version`/`sizeBytes`/links; see
+  [Known drift vs upstream](#known-drift-vs-upstream).
 - Link `name` labels (`Viki - 4.xx+`, `Akirabox pt.2`, `… - DLC`) are *derived*
   by the site from metadata the export does not carry. Copy them out of the
   export; do not try to recompute them.
