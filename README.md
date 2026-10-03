@@ -7,12 +7,12 @@ the repo is data plus the poster images it points at.
 | Path | What it is |
 | --- | --- |
 | `fpkg.json` | The `.fpkg` catalog — 228 packages |
-| `lz4.json` | The `.lz4` catalog — 20 packages |
-| `images/` | 234 poster images, referenced by each package's `posterUrl` |
+| `lz4.json` | The `.lz4` catalog — 31 packages |
+| `images/` | 236 poster images, referenced by each package's `posterUrl` |
 | `samples/fpkg.export.json` | A point-in-time capture of the upstream export |
 | `docs/upstream-export.md` | How the upstream export was reverse-engineered |
 | `tools/fetch-export.sh` | Fetch + pretty-print the upstream export |
-| `tools/sync-fpkg.mjs` | Rebuild `fpkg.json` from an export, mirroring posters |
+| `tools/sync-catalog.mjs` | Rebuild `<pack>.json` from an export, mirroring posters |
 | `tools/export-via-ui.mjs` | Fallback: drive the site's own export button |
 | `schemas/catalog.schema.json` | JSON Schema for a catalog document |
 | `tools/validate-catalog.mjs` | Validator (dependency-free) |
@@ -21,8 +21,8 @@ the repo is data plus the poster images it points at.
 Both catalogs are mirrored from the **GFS Catalog** site
 (<https://pfs-library.xetdy-am.workers.dev/>), whose header offers
 **Tools → Export JSON → fpkg**. Each package's `posterUrl` is rewritten to a
-local `images/` path; that rewrite, and rebuilding `fpkg.json` from an export,
-is what [`tools/sync-fpkg.mjs`](#how-the-data-is-refreshed) does. A handful of
+local `images/` path; that rewrite, and rebuilding a catalog from an export,
+is what [`tools/sync-catalog.mjs`](#how-the-data-is-refreshed) does. A handful of
 inherited data problems remain — see
 [Known drift vs upstream](#known-drift-vs-upstream).
 
@@ -163,21 +163,22 @@ invalid entry fails the check.
 
 ## Automatic sync
 
-[`.github/workflows/sync-fpkg.yml`](.github/workflows/sync-fpkg.yml) runs the
+[`.github/workflows/sync-catalog.yml`](.github/workflows/sync-catalog.yml) runs the
 refresh described under
 [How the data is refreshed](#how-the-data-is-refreshed) on its own, once a day
-(`17 3 * * *` UTC), and on demand via **Actions → Sync fpkg catalog → Run
-workflow** (tick *dry_run* to only print the diff). A run:
+(`17 3 * * *` UTC), and on demand via **Actions → Sync catalog → Run workflow**
+(tick *dry_run* to only print the diff). A matrix runs one job per pack, so both
+catalogs refresh daily. Each job:
 
-1. fetches the export with `tools/fetch-export.sh`;
-2. merges it with `tools/sync-fpkg.mjs` (add/update/remove packages, download any
-   poster `images/` is missing, rewrite `posterUrl`);
-3. validates with `tools/validate-catalog.mjs`;
-4. opens or updates a pull request from the `automation/fpkg-sync` branch — the
+1. fetches the export with `tools/fetch-export.sh <pack>`;
+2. merges it with `tools/sync-catalog.mjs <pack>` (add/update/remove packages,
+   download any poster `images/` is missing, rewrite `posterUrl`);
+3. validates with `tools/validate-catalog.mjs <pack>.json`;
+4. opens or updates a pull request from the `automation/<pack>-sync` branch — the
    workflow has no write access to `main` and never pushes to it.
 
 If the merge fails — the export cannot be fetched, or a poster will not download
-— the job fails and `fpkg.json` is left exactly as it was, so a broken upstream
+— the job fails and the catalog is left exactly as it was, so a broken upstream
 day cannot leave a half-updated catalog behind. If the export has not changed,
 the run exits cleanly without opening a pull request.
 
@@ -224,22 +225,39 @@ curl -sS 'https://pfs-library.xetdy-am.workers.dev/api/export?pack=fpkg'
 
 `pack` is one of `fpkg`, `lz4`, `pfs`, `packizard`. The repo wraps this in
 `tools/fetch-export.sh`, which adds an HTTP status check and a JSON parse check,
-and applies the repo's exact formatting. Feed its output to the sync tool:
+and applies the repo's exact formatting. Feed its output to the sync tool, whose
+first argument is the pack — it selects which catalog is written, so `fpkg`
+maintains `fpkg.json` and `lz4` maintains `lz4.json` through the same code path:
 
 ```bash
 tools/fetch-export.sh fpkg /tmp/fpkg.export.json
-node tools/sync-fpkg.mjs /tmp/fpkg.export.json
+node tools/sync-catalog.mjs fpkg /tmp/fpkg.export.json
+
+tools/fetch-export.sh lz4 /tmp/lz4.export.json
+node tools/sync-catalog.mjs lz4 /tmp/lz4.export.json
 ```
 
-`tools/sync-fpkg.mjs` mirrors every package in the export in upstream order,
+`tools/sync-catalog.mjs` mirrors every package in the export in upstream order,
 rewrites `posterUrl` to the repo's `images/` link, downloads any poster not
-mirrored yet (existing images are never re-fetched), and writes `fpkg.json` as
-2-space-indented JSON with a trailing newline. It is **all-or-nothing**: if a
-poster will not download — or any `posterUrl` would name a file missing from
-`images/` — it deletes the images it fetched, leaves `fpkg.json` exactly as it
-was and exits non-zero, so a failed sync never leaves a half-updated catalog.
-It is idempotent — running it twice downloads nothing the second time. It
-currently syncs `fpkg.json` only; `lz4.json` is mirrored by hand.
+mirrored yet (existing images are never re-fetched; `images/` is shared by both
+packs), and writes `<pack>.json` as 2-space-indented JSON with a trailing
+newline. It refuses an export whose `name` does not end in `-<pack>`, so the
+wrong pack cannot be written into a catalog that still validates.
+
+It is **all-or-nothing**: if a poster will not download, a `posterUrl` would
+name a file missing from `images/`, or a `titleId` is not `PPSA` + 5 digits, it
+deletes the images it fetched, leaves the catalog exactly as it was and exits
+non-zero, so a failed sync never leaves a half-updated catalog. It is idempotent
+— running it twice downloads nothing the second time.
+
+The run's **drift report** is the point of the sync: the export is authoritative
+and is mirrored verbatim, so everything the mirror did not already say is printed
+rather than silently applied. That is entries added and removed (multiset of
+`titleId` + `title`, so a rename shows as one of each), entries whose `version`,
+`sizeBytes` or `posterUrl` changed with old → new values, download links whose
+label changed under a url that stayed (`Viki` → `Viki - 9.xx+`), download links
+whose url disappeared, and duplicate `titleId`s — which upstream ships and the
+sync mirrors as-is rather than inventing ids to paper over.
 
 Then check and commit:
 
@@ -267,10 +285,15 @@ deliberately does not invent data to paper over that. Two things remain:
   `PPSA20955_poster.jpg` survive a sync even though they are not upstream's own
   filename. The `posterUrl` link is what matters, not the name.
 
-Earlier drift — local renames of `Marvel's Wolverine` and `Crisis Core Final
-Fantasy VII Reunion`, three upstream ids missing locally, and one `posterUrl`
-left pointing at `dlpsgame.com` — was resolved by the first full sync
-(<https://github.com/kabbajHoussine/psps/pull/9>).
+Both catalogs are now maintained by the same sync. `lz4.json` was brought in
+line with its export by the first lz4 sync: it went from 20 to 31 packages, one
+shared entry (`Peppa Pig: World Adventures`) changed size and link, and the two
+posters `images/` was missing were mirrored.
+
+Earlier `fpkg.json` drift — local renames of `Marvel's Wolverine` and `Crisis
+Core Final Fantasy VII Reunion`, three upstream ids missing locally, and one
+`posterUrl` left pointing at `dlpsgame.com` — was resolved by the first full
+fpkg sync (<https://github.com/kabbajHoussine/psps/pull/9>).
 
 ## Gotchas
 
