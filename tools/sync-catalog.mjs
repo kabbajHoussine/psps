@@ -1,25 +1,32 @@
 #!/usr/bin/env node
 /**
- * Sync fpkg.json from an upstream GFS Catalog export.
+ * Sync a catalog JSON file from an upstream GFS Catalog export.
  *
  *   tools/fetch-export.sh fpkg /tmp/fpkg.export.json
- *   node tools/sync-fpkg.mjs /tmp/fpkg.export.json
+ *   node tools/sync-catalog.mjs fpkg /tmp/fpkg.export.json
+ *
+ *   tools/fetch-export.sh lz4 /tmp/lz4.export.json
+ *   node tools/sync-catalog.mjs lz4 /tmp/lz4.export.json
  *
  * The input is the export described in docs/upstream-export.md, i.e. exactly
- * what the site's Tools -> Export JSON -> FPKG produces. This script:
+ * what the site's Tools -> Export JSON -> <pack> produces. The pack is the one
+ * the export came from; it selects which catalog to write (`<pack>.json`), so
+ * `fpkg` maintains fpkg.json and `lz4` maintains lz4.json through the same
+ * code path. This script:
  *
  *   1. mirrors every package in the export, in upstream order, keeping the six
  *      house-style fields and their order;
  *   2. rewrites posterUrl to the repo's own images/ raw link, downloading any
  *      poster that is not mirrored yet (existing images are never re-fetched);
  *   3. checks that every posterUrl names a file that is really in images/;
- *   4. writes fpkg.json as 2-space-indented JSON with a trailing newline.
+ *   4. writes <pack>.json as 2-space-indented JSON with a trailing newline.
  *
  * It is all-or-nothing: if even one package cannot be mirrored — a poster that
- * will not download, or a posterUrl that is not https — fpkg.json is left
- * completely untouched and the images that run fetched are rolled back. A failed
- * sync therefore never leaves a half-updated catalog behind (which CI or an
- * automated run could otherwise commit), and is safe to simply retry.
+ * will not download, a posterUrl that is not https, or a malformed titleId —
+ * <pack>.json is left completely untouched and the images that run fetched are
+ * rolled back. A failed sync therefore never leaves a half-updated catalog
+ * behind (which CI or an automated run could otherwise commit), and is safe to
+ * simply retry.
  *
  * It is intentionally dependency-free (Node's standard library only, Node 18+
  * for global fetch) and idempotent: running it twice downloads nothing the
@@ -31,6 +38,23 @@
  * URL (e.g. .../2503/d975a2a2...e76.png -> d975a2a2...e76.png). When a package
  * already has a mirrored poster whose file still exists, that file is kept as
  * is, so hand-picked names such as PPSA20955_poster.jpg survive a sync.
+ * `images/` is shared by every pack, so two packs that reference the same
+ * poster are mirrored to the same file.
+ *
+ * ## What it reports
+ *
+ * The report is the point of the sync: the export is authoritative and the
+ * script mirrors it verbatim, so anything the mirror did *not* already say is
+ * drift and is printed rather than silently applied —
+ *
+ *   - added / removed entries (multiset of titleId + title, so a rename shows
+ *     as one added and one removed rather than a silent in-place rewrite);
+ *   - entries whose version, sizeBytes or posterUrl changed, with the old and
+ *     new value;
+ *   - download links whose *label* changed under a url that stayed
+ *     (e.g. "Viki" -> "Viki - 9.xx+");
+ *   - download links whose url disappeared, even when only the label changed;
+ *   - duplicate titleIds, which are mirrored as-is (see below).
  *
  * ## What it does not do
  *
@@ -38,6 +62,11 @@
  * The script mirrors them faithfully rather than inventing ids: resolving them
  * means correcting data the source itself mis-files, which is a curation
  * decision, not a sync one. It reports them so they stay visible.
+ *
+ * It also never imports a titleId that is not the house format (PPSA + 5
+ * digits): a malformed id is upstream data that needs a curation decision, and
+ * quietly writing it would put a bad id into a validated catalog. The run stops
+ * and names it instead.
  */
 
 import { mkdirSync, readFileSync, writeFileSync, existsSync, statSync, unlinkSync } from "node:fs";
@@ -46,12 +75,17 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const IMAGES_DIR = join(ROOT, "images");
-const CATALOG = join(ROOT, "fpkg.json");
 
 /** The repo's poster link prefix; the validator pins this exact shape. */
 const POSTER_PREFIX =
   "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/";
 const POSTER_RE = /^https:\/\/raw\.githubusercontent\.com\/kabbajHoussine\/psps\/[^\s]+\/images\/([^/]+)$/;
+
+/** Same house format the validator enforces: PPSA + 5 digits. */
+const TITLE_ID_RE = /^PPSA[0-9]{5}$/;
+
+/** A pack name that is safe to turn into a filename. */
+const PACK_RE = /^[a-z0-9][a-z0-9-]*$/;
 
 const FIELDS = ["titleId", "title", "version", "sizeBytes", "posterUrl", "downloadLinks"];
 
@@ -64,7 +98,7 @@ const FIELDS = ["titleId", "title", "version", "sizeBytes", "posterUrl", "downlo
 const identity = (p) => `${p.titleId}\u0000${p.title}`;
 
 function fail(message) {
-  console.error(`sync-fpkg: ${message}`);
+  console.error(`sync-catalog: ${message}`);
   process.exit(1);
 }
 
@@ -140,14 +174,47 @@ function reusablePoster(entry) {
   return entry.posterUrl;
 }
 
+/** Group packages by titleId, keeping each titleId's entries in order. */
+function groupByTitleId(list) {
+  const map = new Map();
+  for (const p of list) {
+    if (!map.has(p.titleId)) map.set(p.titleId, []);
+    map.get(p.titleId).push(p);
+  }
+  return map;
+}
+
+/** url -> set of labels the download links carrying it use. */
+function labelsByUrl(packages) {
+  const map = new Map();
+  for (const p of packages) {
+    for (const link of p.downloadLinks ?? []) {
+      if (!map.has(link.url)) map.set(link.url, new Set());
+      map.get(link.url).add(link.name);
+    }
+  }
+  return map;
+}
+
 async function main(argv) {
-  const exportPath = argv.find((a) => !a.startsWith("-"));
-  if (!exportPath) fail("usage: tools/sync-fpkg.mjs <export.json>  (see docs/upstream-export.md)");
+  const [pack, exportPath] = argv.filter((a) => !a.startsWith("-"));
+  if (!pack || !exportPath) {
+    fail("usage: tools/sync-catalog.mjs <pack> <export.json>  (see docs/upstream-export.md)");
+  }
+  if (!PACK_RE.test(pack)) fail(`"${pack}" is not a usable pack name`);
   if (!existsSync(exportPath)) fail(`no such export file: ${exportPath}`);
+
+  const CATALOG = join(ROOT, `${pack}.json`);
 
   const exportDoc = JSON.parse(readFileSync(exportPath, "utf8"));
   if (!Array.isArray(exportDoc?.packages) || exportDoc.packages.length === 0) {
     fail(`${exportPath}: expected an object with a non-empty "packages" array`);
+  }
+  // Guard against syncing the wrong export into a catalog: the pack argument
+  // chooses the output file, so if the export is not that pack the result would
+  // be a catalog with the wrong data under a name that validates fine.
+  if (typeof exportDoc.name !== "string" || !exportDoc.name.endsWith(`-${pack}`)) {
+    fail(`${exportPath}: export name ${JSON.stringify(exportDoc.name)} is not a "${pack}" export (expected it to end with "-${pack}")`);
   }
 
   const previous = existsSync(CATALOG)
@@ -161,12 +228,20 @@ async function main(argv) {
   const downloaded = [];
   const reused = [];
   const unresolved = [];
+  const malformed = [];
 
   for (const pkg of exportDoc.packages) {
     for (const field of FIELDS) {
       if (field !== "posterUrl" && pkg[field] === undefined) {
         fail(`upstream package ${pkg.titleId} is missing "${field}"`);
       }
+    }
+
+    // A bad id is upstream data, not something to import. Collect it and stop
+    // below, so one malformed id never lands in a catalog the validator gates.
+    if (typeof pkg.titleId !== "string" || !TITLE_ID_RE.test(pkg.titleId)) {
+      malformed.push(`${JSON.stringify(pkg.titleId)} (${pkg.title})`);
+      continue;
     }
 
     const prior = takeExisting(existingById.get(pkg.titleId), pkg);
@@ -197,10 +272,11 @@ async function main(argv) {
     entries.push(toEntry(pkg, posterUrl));
   }
 
-  // Every upstream package must have produced an entry, and every entry must
-  // point at a file that is really in images/. If anything is off we have NOT
-  // written fpkg.json yet, so undo the fetched images and bail — the caller
-  // (and any scheduled job) sees a whole repo, not a half-synced one.
+  // Every upstream package must have produced an entry, every titleId must be
+  // well-formed, and every entry must point at a file that is really in images/.
+  // If anything is off we have NOT written the catalog yet, so undo the fetched
+  // images and bail — the caller (and any scheduled job) sees a whole repo, not
+  // a half-synced one.
   const beforeWrite = (verb) => {
     for (const filename of downloaded) {
       try {
@@ -209,9 +285,14 @@ async function main(argv) {
         // Already gone or never written; nothing to undo.
       }
     }
-    console.error(`sync-fpkg: ${verb}; fpkg.json was NOT modified (removed ${downloaded.length} image(s) fetched this run)`);
+    console.error(`sync-catalog: ${verb}; ${pack}.json was NOT modified (removed ${downloaded.length} image(s) fetched this run)`);
     process.exit(1);
   };
+
+  if (malformed.length > 0) {
+    for (const item of malformed) console.error(`  - malformed titleId ${item}`);
+    beforeWrite(`${malformed.length} package(s) have a titleId that is not PPSA + 5 digits`);
+  }
 
   for (const entry of entries) {
     const match = POSTER_RE.exec(entry.posterUrl);
@@ -230,8 +311,9 @@ async function main(argv) {
   const doc = { name: exportDoc.name, packages: entries };
   writeFileSync(CATALOG, `${JSON.stringify(doc, null, 2)}\n`);
 
-  // ± report. Compared as multisets of (titleId, title, version): a titleId can
-  // legitimately repeat, so counts matter and a map would collapse them.
+  // ------------------------------------------------ drift report (± this run)
+  // Compared as multisets of (titleId, title): a titleId can legitimately
+  // repeat, so counts matter and a map would collapse them.
   const count = (list, key) => {
     const map = new Map();
     for (const item of list) map.set(key(item), (map.get(key(item)) ?? 0) + 1);
@@ -251,7 +333,8 @@ async function main(argv) {
   }
 
   // An entry carried over unchanged by identity may still have changed fields;
-  // compare the retained ones pairwise, in order.
+  // compare the retained ones pairwise, in order, and name the old and new
+  // value so the drift reads without opening the file.
   const previousByIdentity = new Map();
   for (const p of previous) {
     const k = identity(p);
@@ -263,36 +346,28 @@ async function main(argv) {
     const queue = previousByIdentity.get(identity(entry));
     const prior = queue?.shift();
     if (!prior) continue;
-    if (
-      prior.version !== entry.version ||
-      prior.sizeBytes !== entry.sizeBytes ||
-      prior.posterUrl !== entry.posterUrl ||
-      JSON.stringify(prior.downloadLinks) !== JSON.stringify(entry.downloadLinks)
-    ) {
-      changed.push(`${entry.titleId} / ${entry.title}`);
-    }
+    const deltas = [];
+    if (prior.version !== entry.version) deltas.push(`version ${prior.version} -> ${entry.version}`);
+    if (prior.sizeBytes !== entry.sizeBytes) deltas.push(`sizeBytes ${prior.sizeBytes} -> ${entry.sizeBytes}`);
+    if (prior.posterUrl !== entry.posterUrl) deltas.push(`posterUrl ${prior.posterUrl} -> ${entry.posterUrl}`);
+    if (JSON.stringify(prior.downloadLinks) !== JSON.stringify(entry.downloadLinks)) deltas.push("downloadLinks changed");
+    if (deltas.length > 0) changed.push(`${entry.titleId} / ${entry.title}: ${deltas.join("; ")}`);
   }
 
-  // Upstream owns the link list, but a mirror the repo added by hand and the
-  // export no longer carries would otherwise disappear without a trace. Group by
-  // titleId rather than by title so a renamed entry (e.g. "Marvels Wolverine" ->
-  // "Marvel's Wolverine") is still compared. URLs are matched, not labels:
-  // relabelling ("Viki" -> "Viki - 4.xx+") is a normal part of a sync, losing a
-  // url is not.
-  const mergeByTitleId = (list) => {
-    const map = new Map();
-    for (const p of list) {
-      if (!map.has(p.titleId)) map.set(p.titleId, []);
-      map.get(p.titleId).push(p);
-    }
-    return map;
-  };
-  const previousById = mergeByTitleId(previous);
-  const afterById = mergeByTitleId(entries);
+  // Link drift is grouped by titleId rather than by title so a renamed entry
+  // (e.g. "Marvels Wolverine" -> "Marvel's Wolverine") is still compared. URLs
+  // are matched, not labels: relabelling ("Viki" -> "Viki - 4.xx+") is a normal
+  // part of a sync, losing a url is not.
+  const previousById = groupByTitleId(previous);
+  const afterById = groupByTitleId(entries);
+
   const droppedLinks = [];
+  const relabelledLinks = [];
   for (const [titleId, afterList] of afterById) {
     const beforeList = previousById.get(titleId);
     if (!beforeList) continue;
+    const title = afterList[0].title;
+
     const kept = new Set(afterList.flatMap((p) => p.downloadLinks.map((l) => l.url)));
     const gone = [];
     for (const prior of beforeList) {
@@ -306,6 +381,22 @@ async function main(argv) {
     }
     for (const g of gone) {
       droppedLinks.push(`${titleId} / ${g.title}: ${g.name} <${g.url}>`);
+    }
+
+    // A url that survived can still have been relabelled; that is drift too,
+    // and it is exactly what a reader comparing labels would otherwise miss.
+    const beforeLabels = labelsByUrl(beforeList);
+    const afterLabels = labelsByUrl(afterList);
+    for (const [url, names] of afterLabels) {
+      const was = beforeLabels.get(url);
+      if (!was) continue;
+      const arrived = [...names].filter((n) => !was.has(n));
+      const left = [...was].filter((n) => !names.has(n));
+      if (arrived.length > 0 && left.length > 0) {
+        relabelledLinks.push(
+          `${titleId} / ${title}: "${left.join('", "')}" -> "${arrived.join('", "')}" <${url}>`,
+        );
+      }
     }
   }
 
@@ -323,11 +414,12 @@ async function main(argv) {
     for (const item of list) console.log(`  - ${typeof item === "string" ? item : JSON.stringify(item)}`);
   };
 
-  console.log(`wrote fpkg.json: ${entries.length} packages (upstream had ${exportDoc.packages.length})`);
+  console.log(`wrote ${pack}.json: ${entries.length} packages (upstream had ${exportDoc.packages.length})`);
   console.log(`images downloaded: ${downloaded.length}, posters reused: ${reused.length}`);
   show("added", added);
-  show("removed", removed);
+  show("removed (present locally, absent upstream)", removed);
   show("updated (same titleId and title, other fields changed)", changed);
+  show("relabelled download links (url kept, label changed)", relabelledLinks);
   show("dropped download links (url present before, absent upstream)", droppedLinks);
   show("duplicate titleIds upstream (mirrored as-is)", dupes.map(([id, n]) => `${id} x${n}`));
   show("downloaded images", downloaded);
