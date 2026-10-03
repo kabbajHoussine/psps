@@ -2,6 +2,162 @@
   "name": "GFS Catalog-lz4",
   "packages": [
     {
+      "titleId": "PPSA21607",
+      "title": "The Smurfs - Dreams",
+      "version": "01.002",
+      "sizeBytes": 5368709120,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/edabde33467979b8991baf24e0396d56a6d656b746765a78.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/PwQwz7sUPM"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA15972",
+      "title": "DYNASTY WARRIORS: ORIGINS",
+      "version": "01.008.000",
+      "sizeBytes": 63350767616,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/2ba9c1b910e2d5544ffa9d2dc648bf5c16008e4244e4b5f2.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/z7UQzI6BPi"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA01603",
+      "title": "Hogwarts Legacy",
+      "version": "01.000.013",
+      "sizeBytes": 168577466368,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/f6b1e4512ee6061913f7d604da8f5f39566be56ca32a68ee.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/KWWwzvGoU5"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA26358",
+      "title": "Lost Soul Aside",
+      "version": "01.102.000",
+      "sizeBytes": 173946175488,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/7c7a6a34d376b1e789ceb36f6c0d3bcf3fefeb48655f1cc8.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/AyetZb4hIp"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA23226",
+      "title": "Black Myth: Wukong Deluxe Edition",
+      "version": "01.021",
+      "sizeBytes": 150323855360,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/59be402814be4dbf2ba860689f76895fc81510e615c925bd.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/5dwq5Jznsa"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA29343",
+      "title": "Beast of Reincarnation Digital Deluxe Edition",
+      "version": "01.000",
+      "sizeBytes": 50465865728,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/db91bba6d10ccd925e1d33832a949659e81a1ac90d672cf8.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/onlKybVclx"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA18697",
+      "title": "The Bearer & The Last Flame",
+      "version": "01.000.026",
+      "sizeBytes": 26843545600,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/527ee8cd1bb55a927c6607d860b857b3aeede8b0c8ad837f.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/VqykGWyPHM"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA19534",
+      "title": "Battlefield 6",
+      "version": "01.000.016",
+      "sizeBytes": 137438953472,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/61569015edf6c81b2e9772271e357b3c69ff0c2a4a5a2d07.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/WiNtlDkyPq"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA31246",
+      "title": "Resident Evil Requiem Deluxe Edition",
+      "version": "01.200.000",
+      "sizeBytes": 111669149696,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/e0364b3089bbbad7e0a04f87cab6c273172515a134efdf88.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/qf7HV7WiiK"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA09806",
+      "title": "Peppa Pig: World Adventures",
+      "version": "01.000",
+      "sizeBytes": 2942052598,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/IfckwfzgjKU0bHgPmpIbL9TE.png",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/kWkdPp1P7e"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA02530",
+      "title": "PRAGMATA Deluxe Edition",
+      "version": "1.200",
+      "sizeBytes": 54760833024,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/b7ec5836e23affe26c8ad00124a1eddddab5e1bad456c03e.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vik1ngfile.site/f/1w1uP8UN6J"
+        }
+      ]
+    },
+    {
+      "titleId": "PPSA15493",
+      "title": "Atomfall",
+      "version": "01.023.000",
+      "sizeBytes": 59055800320,
+      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/597db9162b01628f87c28c080e81a23ca6e06725429dc7da.jpg",
+      "downloadLinks": [
+        {
+          "name": "Viki",
+          "url": "https://vikingfile.com/f/8Uz0Uy2BOO"
+        }
+      ]
+    },
+    {
       "titleId": "PPSA05813",
       "title": "The Quarry",
       "version": "01.000.007",
@@ -37,19 +193,6 @@
         {
           "name": "Viki",
           "url": "https://vikingfile.com/f/YE3IcMQEHF"
-        }
-      ]
-    },
-    {
-      "titleId": "PPSA09806",
-      "title": "Peppa Pig: World Adventures",
-      "version": "01.000",
-      "sizeBytes": 1954210120,
-      "posterUrl": "https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/IfckwfzgjKU0bHgPmpIbL9TE.png",
-      "downloadLinks": [
-        {
-          "name": "Viki",
-          "url": "https://vikingfile.com/f/gTy1YGRspX"
         }
       ]
     },

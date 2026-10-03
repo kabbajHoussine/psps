@@ -164,8 +164,9 @@ minus the trailing newline).
 
 ## Drift at time of writing
 
-Not acted on here — syncing is the next issue's job. Repo `fpkg.json` vs the 2026-10-01
-export:
+The fpkg part below was recorded before the first sync and has since been
+resolved by it (<https://github.com/kabbajHoussine/psps/pull/9>). Repo
+`fpkg.json` vs the 2026-10-01 export:
 
 - 5 upstream entries absent from the repo, including renames that look like they may
   already be locally curated:
@@ -176,19 +177,55 @@ export:
 - 9 shared entries differ only in download-link labels (e.g. `Viki` → `Viki - 9.xx+`,
   `Viki - 4.xx+`), and 1 also changed size (`SAROS`).
 
+### The lz4 sync (2026-10-03)
+
+The lz4 export of the same capture held 31 packages against the repo's 20. The
+sync added the 11 missing entries, mirrored the 2 posters `images/` was missing
+(named after the last path segment of the upstream URL, same policy as fpkg),
+and reused the other 29 images. One shared entry drifted:
+
+- `Peppa Pig: World Adventures` (PPSA09806): `sizeBytes` 1954210120 → 2942052598,
+  and its single link's url changed (`…/f/gTy1YGRspX` → `…/f/kWkdPp1P7e`). The
+  old url is reported as a dropped download link, and the new one is kept.
+
+Upstream's lz4 pack had no duplicate `titleId`s in this capture. Note that the
+sync tool never imports a `titleId` that is not `PPSA` + 5 digits: the fpkg pack
+ships one such id (`PPSA0724`, for the Valkyrie Elysium row) and the run stops
+and names it rather than writing it into a validated catalog.
+
 ## The sync, and what happens when the endpoint is not there
 
 The pieces above are wired together by
-[`tools/sync-fpkg.mjs`](../tools/sync-fpkg.mjs) and run automatically by
-[`.github/workflows/sync-fpkg.yml`](../.github/workflows/sync-fpkg.yml) once a day and on
-`workflow_dispatch`. The whole loop is dependency-free Node, so nothing needs installing:
+[`tools/sync-catalog.mjs`](../tools/sync-catalog.mjs) and run automatically by
+[`.github/workflows/sync-catalog.yml`](../.github/workflows/sync-catalog.yml) once a day and
+on `workflow_dispatch`, one job per pack. The sync tool takes the pack as its first
+argument and writes `<pack>.json`, so both catalogs go through the same code path. The
+whole loop is dependency-free Node, so nothing needs installing:
 
 ```bash
 tools/fetch-export.sh fpkg /tmp/fpkg.export.json   # 1. the export
-node tools/sync-fpkg.mjs /tmp/fpkg.export.json     # 2. merge + mirror posters
+node tools/sync-catalog.mjs fpkg /tmp/fpkg.export.json  # 2. merge + mirror posters
 node tools/validate-catalog.mjs fpkg.json          # 3. validate
 git status --short                                 # 4. empty = nothing to do
 ```
+
+For `lz4`, swap the pack in all four commands (`lz4.json` is the file, `automation/lz4-sync`
+the branch). The tool refuses an export whose `name` does not end in `-<pack>`, so an
+fpkg export cannot be written into `lz4.json`.
+
+### The drift report
+
+The export is authoritative and the sync mirrors it verbatim, so the report is the part
+that matters: everything the mirror did not already say is printed rather than silently
+applied. It names
+
+- entries added and removed, compared as a multiset of `titleId` + `title` — so a rename
+  (the `Marvels Wolverine` → `Marvel's Wolverine` kind) reads as one added and one removed
+  rather than a silent rewrite;
+- entries whose `version`, `sizeBytes` or `posterUrl` changed, with old → new values;
+- download links relabelled while keeping their url (`Viki` → `Viki - 9.xx+`), and links
+  whose url disappeared;
+- duplicate `titleId`s, which are mirrored as-is and never deduped.
 
 ### The endpoint is unversioned, so plan for it to break
 
@@ -207,12 +244,12 @@ error code: 1042
 This is why the workflow's first step is `tools/fetch-export.sh`, which fails on a
 non-200 with the status and a snippet of the body: a down site must fail the job loudly,
 not surface later as a confusing diff. Nothing in the sync path fabricates or caches a
-catalog, so when the upstream is gone the run simply fails and `fpkg.json` keeps its last
+catalog, so when the upstream is gone the run simply fails and each catalog keeps its last
 good contents until the site is back.
 
 Because a silent stall is the real risk, the run is checked in two places: a failure
 notifies the repo's watchers through the normal Actions notification, and a *stale* repo
-is visible from the `Sync fpkg catalog` workflow's last-run time in the Actions tab.
+is visible from the `Sync catalog` workflow's last-run time in the Actions tab.
 There is no third-party uptime monitor — a daily endpoint with no owner to page would
 not have much to page *to*.
 

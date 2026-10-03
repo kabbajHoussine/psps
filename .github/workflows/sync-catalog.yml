@@ -1,11 +1,14 @@
-name: Sync fpkg catalog
+name: Sync catalog
 
-# Keep fpkg.json tracking the upstream GFS Catalog on its own, once a day.
+# Keep the catalogs tracking the upstream GFS Catalog on their own, once a day.
+# One job per pack (fpkg, lz4), each writing its own catalog file and opening its
+# own pull request.
 #
 # How the export is obtained is documented in docs/upstream-export.md; the merge
-# itself is tools/sync-fpkg.mjs. This workflow only ever opens a pull request on
-# its own automation branch — it never commits to main. QA still reviews every
-# sync like any other PR, and the "Validate catalog" check re-runs on it.
+# itself is tools/sync-catalog.mjs, which takes the pack as its first argument.
+# This workflow only ever opens a pull request on its own automation branch — it
+# never commits to main. QA still reviews every sync like any other PR, and the
+# "Validate catalog" check re-runs on it.
 #
 # Deliberately a schedule *in the repo*: an agent-side timer would be tied to
 # whichever machine happened to be running, and would stop the moment that
@@ -29,17 +32,24 @@ permissions:
   contents: write
   pull-requests: write
 
-# One sync at a time. A second run waits for the first rather than racing it for
-# the automation branch.
-concurrency:
-  group: sync-fpkg
-  cancel-in-progress: false
-
 jobs:
   sync:
-    name: Sync fpkg.json from upstream
+    name: Sync ${{ matrix.pack }}.json from upstream
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    # One sync at a time *per pack*: a second run of the same pack waits rather
+    # than racing the first for its automation branch. Keyed by pack so the fpkg
+    # and lz4 jobs of a single run still go in parallel.
+    concurrency:
+      group: sync-${{ matrix.pack }}
+      cancel-in-progress: false
+    strategy:
+      # Both packs share images/, but never the same file for the same package in
+      # practice, and each commits only its own catalog plus any image it fetched.
+      # Run them all to completion rather than cancelling one when the other trips.
+      fail-fast: false
+      matrix:
+        pack: [fpkg, lz4]
     steps:
       - name: Check out main
         uses: actions/checkout@v4
@@ -53,34 +63,34 @@ jobs:
         with:
           node-version: "20"
 
-      # 1. The upstream export. fetch-export.sh checks the HTTP status and parses
-      #    the body, so a down site, a moved endpoint or an HTML error page fails
-      #    here with the status and a snippet of the body — not later, as a
-      #    mysterious diff.
-      - name: Fetch upstream fpkg export
-        run: tools/fetch-export.sh fpkg /tmp/fpkg.export.json
+      # 1. The upstream export for this pack. fetch-export.sh checks the HTTP
+      #    status and parses the body, so a down site, a moved endpoint or an HTML
+      #    error page fails here with the status and a snippet of the body — not
+      #    later, as a mysterious diff.
+      - name: Fetch upstream ${{ matrix.pack }} export
+        run: tools/fetch-export.sh ${{ matrix.pack }} /tmp/${{ matrix.pack }}.export.json
 
-      # 2. Merge into fpkg.json and download any poster images/ is missing.
+      # 2. Merge into <pack>.json and download any poster images/ is missing.
       #    All-or-nothing: if a single poster will not download, the script
-      #    restores the images it fetched and leaves fpkg.json untouched. So a
+      #    restores the images it fetched and leaves the catalog untouched. So a
       #    failure here cannot leave a half-updated catalog to be committed.
-      - name: Merge into fpkg.json
+      - name: Merge into ${{ matrix.pack }}.json
         run: |
           set -o pipefail
-          node tools/sync-fpkg.mjs /tmp/fpkg.export.json | tee /tmp/sync-report.txt
+          node tools/sync-catalog.mjs ${{ matrix.pack }} /tmp/${{ matrix.pack }}.export.json | tee /tmp/sync-report.txt
 
       # 3. A PR is never opened for a catalog that does not validate. This is the
       #    same validator the pull_request check runs, so a sync that would fail
       #    CI stops here instead, with the reason in the log.
       - name: Validate the merged catalog
-        run: node tools/validate-catalog.mjs fpkg.json
+        run: node tools/validate-catalog.mjs ${{ matrix.pack }}.json
 
       # 4. Nothing to do is a clean, successful exit — no branch, no PR.
       - name: Detect changes
         id: changes
         run: |
           if [ -z "$(git status --porcelain)" ]; then
-            echo "no changes: fpkg.json and images/ already match the upstream export"
+            echo "no changes: ${{ matrix.pack }}.json and images/ already match the upstream export"
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -95,16 +105,16 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          BRANCH="automation/fpkg-sync"
+          BRANCH="automation/${{ matrix.pack }}-sync"
 
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
 
           git checkout -b "$BRANCH"
-          git add fpkg.json images
+          git add ${{ matrix.pack }}.json images
           git commit \
-            -m "Sync fpkg.json with the upstream export" \
-            -m "Automated mirror of GET /api/export?pack=fpkg: fpkg.json plus any poster image missing from images/. Opened by .github/workflows/sync-fpkg.yml."
+            -m "Sync ${{ matrix.pack }}.json with the upstream export" \
+            -m "Automated mirror of GET /api/export?pack=${{ matrix.pack }}: ${{ matrix.pack }}.json plus any poster image missing from images/. Opened by .github/workflows/sync-catalog.yml."
 
           # A guard, not a formality: this workflow must never be able to push
           # anything but its own branch.
@@ -121,8 +131,8 @@ jobs:
           git push --force-with-lease origin "$BRANCH"
 
           {
-            echo "Automated sync of \`fpkg.json\` from the upstream GFS Catalog export"
-            echo "(\`GET /api/export?pack=fpkg\` — see [\`docs/upstream-export.md\`](${{ github.server_url }}/${{ github.repository }}/blob/main/docs/upstream-export.md))."
+            echo "Automated sync of \`${{ matrix.pack }}.json\` from the upstream GFS Catalog export"
+            echo "(\`GET /api/export?pack=${{ matrix.pack }}\` — see [\`docs/upstream-export.md\`](${{ github.server_url }}/${{ github.repository }}/blob/main/docs/upstream-export.md))."
             echo
             echo "Run: [\`${{ github.run_id }}\`](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})"
             echo
@@ -138,12 +148,12 @@ jobs:
             cat /tmp/sync-report.txt
             echo '```'
             echo
-            echo "Opened automatically by \`.github/workflows/sync-fpkg.yml\`. QA reviews it like any other PR."
+            echo "Opened automatically by \`.github/workflows/sync-catalog.yml\`. QA reviews it like any other PR."
           } > /tmp/pr-body.md
 
           if [ "$(gh pr list --head "$BRANCH" --state open --json number --jq 'length')" = "0" ]; then
             gh pr create --base main --head "$BRANCH" \
-              --title "Sync fpkg.json with the upstream export ($(date -u +%Y-%m-%d))" \
+              --title "Sync ${{ matrix.pack }}.json with the upstream export ($(date -u +%Y-%m-%d))" \
               --body-file /tmp/pr-body.md
           else
             echo "updated the open sync pull request for $BRANCH"
@@ -159,4 +169,4 @@ jobs:
       - name: Nothing to sync
         if: steps.changes.outputs.changed != 'true'
         run: |
-          echo "no changes: fpkg.json and images/ already match the upstream export"
+          echo "no changes: ${{ matrix.pack }}.json and images/ already match the upstream export"
