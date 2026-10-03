@@ -37,6 +37,12 @@ jobs:
     name: Sync ${{ matrix.pack }}.json from upstream
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    # One sync at a time *per pack*: a second run of the same pack waits rather
+    # than racing the first for its automation branch. Keyed by pack so the fpkg
+    # and lz4 jobs of a single run still go in parallel.
+    concurrency:
+      group: sync-${{ matrix.pack }}
+      cancel-in-progress: false
     strategy:
       # Both packs share images/, but never the same file for the same package in
       # practice, and each commits only its own catalog plus any image it fetched.
