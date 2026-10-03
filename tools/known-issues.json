@@ -1,0 +1,62 @@
+{
+  "_comment": [
+    "Violations that already existed when tools/validate-catalog.mjs was introduced.",
+    "The validator fails the build on anything NOT listed here, so new breakage cannot",
+    "merge; these entries only keep the inherited debt from blocking every pull request.",
+    "",
+    "Remove an entry as soon as its cause is fixed — the validator prints a note when an",
+    "entry no longer matches anything. Fixing these belongs to the catalog sync work",
+    "(issue #4), not to the validator: the cause is upstream, see below."
+  ],
+  "allowed": [
+    {
+      "file": "fpkg.json",
+      "check": "duplicate-titleId",
+      "titleId": "PPSA28420",
+      "count": 3,
+      "reason": "Upstream lists NBA 2K26 (twice) and Suicide Squad Kill The Justice League under PPSA28420; the site's own /api/export ships 11 duplicate titleIds. Needs a sync-side keying decision (issue #4)."
+    },
+    {
+      "file": "fpkg.json",
+      "check": "duplicate-titleId",
+      "titleId": "PPSA20800",
+      "count": 1,
+      "reason": "Repo carries both 'Metaphor ReFantazio' and 'Metaphor ReFantazio Deluxe Edition' on PPSA20800; upstream has only the base game. The deluxe entry is a repo-side leftover to drop during sync."
+    },
+    {
+      "file": "fpkg.json",
+      "check": "duplicate-titleId",
+      "titleId": "PPSA03541",
+      "count": 1,
+      "reason": "Upstream lists UFC 5 twice under PPSA03541 with different hosts. Sync-side dedupe."
+    },
+    {
+      "file": "fpkg.json",
+      "check": "duplicate-titleId",
+      "titleId": "PPSA07631",
+      "count": 1,
+      "reason": "SAROS appears twice on PPSA07631 with different sizes (84825604096 vs 81067507712). Upstream has a single entry; the repo duplicate is stale."
+    },
+    {
+      "file": "fpkg.json",
+      "check": "duplicate-titleId",
+      "titleId": "PPSA07274",
+      "count": 1,
+      "reason": "Valkyrie Elysium is filed under PPSA07274, which belongs to Tales of Arise. Upstream lists it as the malformed id 'PPSA0724'; the repo entry inherited a wrong id."
+    },
+    {
+      "file": "fpkg.json",
+      "check": "duplicate-titleId",
+      "titleId": "PPSA01341",
+      "count": 1,
+      "reason": "Demon's Souls is filed under PPSA01341; upstream lists it as PPSA01342. The repo id is wrong (off by one)."
+    },
+    {
+      "file": "fpkg.json",
+      "check": "posterUrl",
+      "titleId": "PPSA03671",
+      "count": 1,
+      "reason": "Marvel's Wolverine still points at the upstream https://dlpsgame.com/... poster instead of a mirrored images/ file. Needs a poster download during sync (issue #4)."
+    }
+  ]
+}

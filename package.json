@@ -1,0 +1,14 @@
+{
+  "name": "psps-catalog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PS5 game package download catalog: static JSON data files and mirrored poster images.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tools/*.test.mjs && node tools/validate-catalog.mjs",
+    "validate": "node tools/validate-catalog.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

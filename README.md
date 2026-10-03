@@ -6,19 +6,25 @@ the repo is data plus the poster images it points at.
 
 | Path | What it is |
 | --- | --- |
-| `fpkg.json` | The `.fpkg` catalog — 229 packages |
+| `fpkg.json` | The `.fpkg` catalog — 228 packages |
 | `lz4.json` | The `.lz4` catalog — 20 packages |
-| `images/` | 230 poster images, referenced by each package's `posterUrl` |
+| `images/` | 234 poster images, referenced by each package's `posterUrl` |
+| `samples/fpkg.export.json` | A point-in-time capture of the upstream export |
 | `docs/upstream-export.md` | How the upstream export was reverse-engineered |
 | `tools/fetch-export.sh` | Fetch + pretty-print the upstream export |
+| `tools/sync-fpkg.mjs` | Rebuild `fpkg.json` from an export, mirroring posters |
 | `tools/export-via-ui.mjs` | Fallback: drive the site's own export button |
-| `samples/fpkg.export.json` | A point-in-time capture of the upstream export |
+| `schemas/catalog.schema.json` | JSON Schema for a catalog document |
+| `tools/validate-catalog.mjs` | Validator (dependency-free) |
+| `tools/known-issues.json` | Pre-existing violations the validator tolerates |
 
 Both catalogs are mirrored from the **GFS Catalog** site
-(<https://pfs-library.xetdy-am.workers.dev/>): `posterUrl` is rewritten to a
-local `images/` path, and a few entries otherwise differ from the upstream export
-(see [Known drift vs upstream](#known-drift-vs-upstream)). One entry —
-`PPSA03671` — still points at an external host rather than `images/`.
+(<https://pfs-library.xetdy-am.workers.dev/>), whose header offers
+**Tools → Export JSON → fpkg**. Each package's `posterUrl` is rewritten to a
+local `images/` path; that rewrite, and rebuilding `fpkg.json` from an export,
+is what [`tools/sync-fpkg.mjs`](#how-the-data-is-refreshed) does. A handful of
+inherited data problems remain — see
+[Known drift vs upstream](#known-drift-vs-upstream).
 
 ## Catalog format
 
@@ -60,10 +66,12 @@ Each entry in `packages` has exactly these six keys, in this order:
 
 Two rules the JSON itself does not enforce:
 
-- **`titleId` is not unique.** The upstream export ships duplicates (the same id
-  for different games), and `fpkg.json` has inherited several. Do not key
-  entries by `titleId` alone.
-- **`posterUrl` must resolve.** Every `posterUrl` should point at
+- **`titleId` is not unique.** The upstream export ships duplicate ids (the same
+  id for different games) and `fpkg.json` has inherited a few. Do not key entries
+  by `titleId` alone. As of the last sync, four ids are duplicated
+  (`PPSA28420`, `PPSA20800`, `PPSA01341`, `PPSA07274`); `tools/known-issues.json`
+  lists each with a reason.
+- **`posterUrl` must resolve.** Every `posterUrl` points at
 
   ```
   https://raw.githubusercontent.com/kabbajHoussine/psps/refs/heads/main/images/<filename>
@@ -71,13 +79,8 @@ Two rules the JSON itself does not enforce:
 
   and `<filename>` **must exist in `images/`**. Never commit a `posterUrl` whose
   file is missing — the app has no fallback. Most filenames are opaque
-  (`f7d7f07d…b3.jpg`, `01Slmbo3uyEiyiomq7TxBBLl.png`); `.jpg` and `.png` both occur.
-
-  One entry currently breaks this rule: `fpkg.json` `PPSA03671`
-  ("Marvels Wolverine") still points at
-  `https://dlpsgame.com/wp-content/uploads/2026/09/17-wsc.jpg`. That legacy
-  external URL should be replaced with a local `images/` path or removed; until
-  then any check for the prefix has exactly one exception to allow.
+  (`f7d7f07d…b3.jpg`, `01Slmbo3uyEiyiomq7TxBBLl.png`); `.jpg` and `.png` both
+  occur. `npm test` enforces this, so a broken link fails CI rather than shipping.
 
 ### Formatting
 
@@ -87,18 +90,91 @@ Two rules the JSON itself does not enforce:
   `downloadLinks`.
 - File ends with a trailing newline.
 
+## Validating
+
+```bash
+npm test
+```
+
+That runs the validator's own test suite and then validates `fpkg.json` and
+`lz4.json`. Exit code is `0` when the catalogs are valid and `1` when they are
+not, with one line per offending entry naming the array index, `titleId`, JSON
+line and the problem:
+
+```
+FAIL  fpkg.json (1 problem)
+  - packages[229] PPSA99999 line 3697: sizeBytes must be a positive integer (got -1)
+```
+
+To validate a specific file — useful before committing a hand-edited catalog:
+
+```bash
+npm run validate                      # the default files
+node tools/validate-catalog.mjs path/to/catalog.json
+```
+
+No dependencies, so there is nothing to install; Node 20 or newer is all that is
+needed. (The `test` script relies on the shell expanding `tools/*.test.mjs`,
+because `node --test` only learned to glob for itself in Node 22.)
+
+### What is checked
+
+- the file parses as JSON, and is an object with a `name` and a `packages` array;
+- every package has all six required fields, with no unexpected extras;
+- `sizeBytes` is a positive integer;
+- `titleId` matches `PPSA` followed by exactly 5 digits;
+- no duplicate `titleId` within a file;
+- `downloadLinks` is non-empty, every entry has a `name` and an `https://` `url`;
+- every `posterUrl` is a `raw.githubusercontent.com/kabbajHoussine/psps/...`
+  link **and** the file it names exists in `images/`.
+
+`schemas/catalog.schema.json` is the same contract in JSON Schema form, for
+editors and other tooling — structure, required fields, types and the `titleId`
+and `posterUrl` patterns. Two things it cannot express, and which only the
+validator checks: **duplicate `titleId`s** and **whether the poster file is
+really present in `images/`**.
+
+### Pre-existing violations
+
+The upstream site's own export ships duplicate `titleId`s, so a few violations
+predate the validator. `npm test` currently reports them and still exits `0`:
+
+```
+ok    fpkg.json (228 packages, 4 known)
+  ~ packages[19] PPSA28420 line 335: duplicate titleId "PPSA28420" (first seen at packages[18] line 318)
+      known: Upstream lists NBA 2K26 (twice) and Suicide Squad ... (issue #4).
+```
+
+Those are listed in `tools/known-issues.json` with a reason each. The rule is:
+
+- a violation **not** in the baseline fails the run;
+- a violation **in** the baseline is reported and passes;
+- a baseline entry that no longer matches anything prints a note, so the list
+  shrinks as the debt is paid off — fixing one is never punished.
+
+Fixing them is catalog-data work, tracked in issue #4; the baseline only stops
+inherited breakage from blocking every unrelated pull request.
+
+## CI
+
+[`.github/workflows/validate-catalog.yml`](.github/workflows/validate-catalog.yml)
+runs `npm test` on every pull request and on pushes to `main`. A PR containing an
+invalid entry fails the check.
+
 ## Adding an entry by hand
+
+Usually you would re-run the sync instead (below), but to add one entry directly:
 
 1. Append the package object to `packages` in `fpkg.json`, following the key
    order and 2-space indent above.
 2. Drop the poster into `images/` under a filename that is not already taken
    (keep the upstream name if there is one), then set `posterUrl` to the
    `raw.githubusercontent.com/…/images/<filename>` link for it.
-3. Confirm the file really is in `images/` and that the JSON still parses:
+3. Validate before committing — this catches a missing poster, a duplicate id, a
+   bad `sizeBytes` and a malformed `titleId` in one pass:
 
    ```bash
-   python3 -m json.tool fpkg.json > /dev/null && echo "parses"
-   ls images/<filename>
+   npm test
    ```
 
 ## How the data is refreshed
@@ -116,11 +192,26 @@ curl -sS 'https://pfs-library.xetdy-am.workers.dev/api/export?pack=fpkg'
 ```
 
 `pack` is one of `fpkg`, `lz4`, `pfs`, `packizard`. The repo wraps this in
-`tools/fetch-export.sh`, which adds an HTTP status check and a JSON parse
-check, and applies the repo's exact formatting:
+`tools/fetch-export.sh`, which adds an HTTP status check and a JSON parse check,
+and applies the repo's exact formatting. Feed its output to the sync tool:
 
 ```bash
 tools/fetch-export.sh fpkg /tmp/fpkg.export.json
+node tools/sync-fpkg.mjs /tmp/fpkg.export.json
+```
+
+`tools/sync-fpkg.mjs` mirrors every package in the export in upstream order,
+rewrites `posterUrl` to the repo's `images/` link, downloads any poster not
+mirrored yet (existing images are never re-fetched), writes `fpkg.json` as
+2-space-indented JSON with a trailing newline, and **refuses to finish if any
+`posterUrl` would name a file missing from `images/`**. It is idempotent —
+running it twice downloads nothing the second time. It currently syncs
+`fpkg.json` only; `lz4.json` is mirrored by hand.
+
+Then check and commit:
+
+```bash
+npm test
 ```
 
 `docs/upstream-export.md` has the full recon: why the endpoint is byte-identical
@@ -129,40 +220,31 @@ Turnstile gate on the UI, content-hashed asset names, and that `/api/export` is
 undocumented and may drift). `tools/export-via-ui.mjs` drives the real browser as
 a ground-truth fallback.
 
-The sync itself — diffing the export against `fpkg.json`, merging new/removed/
-changed packages and downloading posters — is tracked in **issue #4**
-(<https://github.com/kabbajHoussine/psps/issues/4>). Until it lands, the refresh
-is manual: fetch the export, diff it against `fpkg.json`, merge by hand, and
-mirror any new posters into `images/`.
-
 ### Known drift vs upstream
 
-`fpkg.json` is *not* a clean copy of the upstream export. Compared with
-`samples/fpkg.export.json` (the 2026-10-01 capture), it differs beyond the
-expected `posterUrl` rewrite:
+`fpkg.json` is not a clean copy of the upstream export, and the sync tool
+deliberately does not invent data to paper over that. Two things remain:
 
-- **Two entries are renamed or re-spelled.** `PPSA03671` is `"Marvels Wolverine"`
-  locally but `"Marvel's Wolverine"` upstream — and its `version` (`1.08` vs
-  `01.001.005`), `sizeBytes`, links and `posterUrl` all differ too, so it looks
-  locally curated. `PPSA07809` is `"Final Fantasy Vll Crisis Core Reunion"`
-  locally but `"Crisis Core Final Fantasy VII Reunion"` upstream (note the
-  lower-case `Vll`).
-- **Three upstream ids are absent locally:** `PPSA12544` (Hollow Knight:
-  Silksong), `PPSA18605` (READY OR NOT) and `PPSA28183` (Assassin's Creed Black
-  Flag Resynced).
-- **`PPSA03671`'s `posterUrl` is not mirrored** (see the rule above).
+- **Duplicate `titleId`s are mirrored faithfully,** not resolved. The source
+  mis-files a few games (e.g. Valkyrie Elysium under Tales of Arise's id), and
+  correcting that is a curation decision, not a sync one. The sync reports them
+  and `tools/known-issues.json` records them; see issue #4.
+- **A poster filename may be hand-picked.** When a package already has a mirrored
+  poster whose file still exists, that file is kept as is, so names such as
+  `PPSA20955_poster.jpg` survive a sync even though they are not upstream's own
+  filename. The `posterUrl` link is what matters, not the name.
 
-Do not "fix" these by hand here — reconciling them is issue #4's job. They are
-recorded so the next sync starts from the real difference rather than rediscovering it.
+Earlier drift — local renames of `Marvel's Wolverine` and `Crisis Core Final
+Fantasy VII Reunion`, three upstream ids missing locally, and one `posterUrl`
+left pointing at `dlpsgame.com` — was resolved by the first full sync
+(<https://github.com/kabbajHoussine/psps/pull/9>).
 
 ## Gotchas
 
 - `sizeBytes` changes constantly and is large (`20401094656`, not `20.4 GB`) —
   store it as an integer.
-- `posterUrl` is the field this repo rewrites relative to upstream — for all but
-  one entry. Beyond that rewrite, `PPSA03671` and `PPSA07809` also diverge in
-  `title`/`version`/`sizeBytes`/links; see
-  [Known drift vs upstream](#known-drift-vs-upstream).
+- `posterUrl` is the field the sync rewrites. If you hand-edit anything else,
+  the next sync will overwrite it — that divergence is drift, not curation.
 - Link `name` labels (`Viki - 4.xx+`, `Akirabox pt.2`, `… - DLC`) are *derived*
   by the site from metadata the export does not carry. Copy them out of the
   export; do not try to recompute them.
